@@ -5,7 +5,7 @@
     "lib": ["es2022", "dom"],
 
     /* Modules */
-    "module": "commonjs",
+    "module": "esnext",
     "moduleResolution": "bundler",
     /* baseUrl はTS6で非推奨。pathsはtsconfigの位置基準で解決されるため単独で使う */
     "paths": {
@@ -13,14 +13,11 @@
     },
     "resolveJsonModule": true,
     "types": [
-      "jest",
       "node"
     ],
 
     /* Emit */
-    "declaration": true,
-    "sourceMap": true,
-    "outDir": "lib",
+    "noEmit": true,
 
     /* Interop Constraints */
     "esModuleInterop": true,
@@ -32,8 +29,10 @@
     "skipLibCheck": true
   },
   "include": [
-    ".build/**/*",
-    "test/**/*"
+    "src/**/*",
+    "test/**/*",
+    "vite.config.ts",
+    "vitest.config.ts"
   ],
   "exclude": [
     "node_modules",

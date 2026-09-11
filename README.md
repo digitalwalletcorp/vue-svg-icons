@@ -6,7 +6,7 @@ A set of original SVG icons shipped directly as Vue 3 components. Includes indep
 
 Every icon is drawn from scratch using basic SVG primitives. No emoji font glyphs are referenced or traced, ensuring identical rendering across all environments with zero font licensing obligations.
 
-![Icon catalog](https://raw.githubusercontent.com/digitalwalletcorp/vue-svg-icons/main/docs/catalog.svg)
+![Icon catalog](https://raw.githubusercontent.com/digitalwalletcorp/vue-svg-icons/main/docs/catalog.png)
 
 #### ✨ Features
 
