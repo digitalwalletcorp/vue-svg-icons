@@ -1,0 +1,42 @@
+{
+  "compilerOptions": {
+    /* Language and Environment */
+    "target": "es2022",
+    "lib": ["es2022", "dom"],
+
+    /* Modules */
+    "module": "commonjs",
+    "moduleResolution": "bundler",
+    /* baseUrl はTS6で非推奨。pathsはtsconfigの位置基準で解決されるため単独で使う */
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+    "resolveJsonModule": true,
+    "types": [
+      "jest",
+      "node"
+    ],
+
+    /* Emit */
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "lib",
+
+    /* Interop Constraints */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    /* Type Checking */
+    "strict": true,
+    "noImplicitReturns": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    ".build/**/*",
+    "test/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "lib"
+  ]
+}

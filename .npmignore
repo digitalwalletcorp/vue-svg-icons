@@ -1,0 +1,10 @@
+/node_modules
+/dest
+/.build
+/scripts
+/test
+tsconfig.json
+tsconfig.build.json
+tsconfig.build.esm.json
+jest.config.ts
+yarn.lock
