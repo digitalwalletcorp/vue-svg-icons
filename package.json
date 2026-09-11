@@ -1,32 +1,35 @@
 {
   "name": "@digitalwalletcorp/vue-svg-icons",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "type": "module",
   "description": "Original SVG icons for Unicode emoji characters, shipped as Vue 3 components",
-  "main": "lib/index.js",
-  "module": "lib/esm/index.js",
+  "main": "lib/index.cjs",
+  "module": "lib/index.js",
   "types": "lib/index.d.ts",
   "sideEffects": false,
   "exports": {
     ".": {
       "types": "./lib/index.d.ts",
-      "import": "./lib/esm/index.js",
-      "require": "./lib/index.js"
+      "import": "./lib/index.js",
+      "require": "./lib/index.cjs"
     },
     "./*": {
       "types": "./lib/*.d.ts",
-      "import": "./lib/esm/*.js",
-      "require": "./lib/*.js"
+      "import": "./lib/*.js",
+      "require": "./lib/*.cjs"
     }
   },
   "scripts": {
-    "build": "node scripts/build.mjs",
+    "build": "vite build",
+    "typecheck": "vue-tsc --noEmit -p tsconfig.json",
     "version:patch": "npm version patch",
     "version:minor": "npm version minor",
     "version:major": "npm version major",
     "prepack": "rm -rf lib && npm run build",
+    "catalog": "node ../bin/build-icon-catalog.mjs src docs/catalog.png",
     "pack": "rm -rf dest && mkdir -p dest && npm pack --pack-destination=dest",
     "publish:npm": "bash ../bin/publish.sh",
-    "test:unit": "NODE_OPTIONS=--max-old-space-size=2048 npx jest --runInBand --logHeapUsage --detectOpenHandles --forceExit --errorOnDeprecated --coverage --silent --unhandled-rejections=strict"
+    "test:unit": "vitest run --coverage"
   },
   "keywords": [
     "svg",
@@ -54,15 +57,14 @@
     "vue": "^3.5.0"
   },
   "devDependencies": {
-    "@types/jest": "^29.5.14",
-    "@types/node": "^22.20.2",
-    "@vue/compiler-sfc": "^3.5.0",
-    "@vue/server-renderer": "^3.5.0",
-    "jest": "^29.7.0",
-    "ts-jest": "^29.3.4",
-    "ts-node": "^10.9.2",
-    "typescript": "^6.0.3",
+    "@types/node": "24.0.8",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "@vitest/coverage-v8": "3.2.4",
+    "typescript": "6.0.3",
+    "vite": "^7.0.0",
+    "vite-plugin-dts": "5.1.0",
+    "vitest": "3.2.4",
     "vue": "^3.5.0",
-    "vue-tsc": "^3.0.0"
+    "vue-tsc": "3.1.5"
   }
 }

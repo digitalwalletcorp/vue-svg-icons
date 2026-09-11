@@ -1,6 +1,4 @@
 /node_modules
 /lib
 /dest
-/.build
-/.dts
 /test/coverage
