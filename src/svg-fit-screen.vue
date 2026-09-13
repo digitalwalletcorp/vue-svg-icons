@@ -1,0 +1,32 @@
+<!--
+表示を初期状態(全体表示)へ戻すことをイメージしたアイコン(四隅の内向きかぎ括弧)
+UTF-8絵文字に対応する定番絵文字は存在しない
+-->
+<template>
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 64 64"
+    :width="props.size"
+    :height="props.size"
+  >
+    <path
+      d="M10 24 V10 H24 M40 10 H54 V24 M54 40 V54 H40 M24 54 H10 V40"
+      :stroke="props.color"
+      stroke-width="6"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      fill="none"
+    />
+  </svg>
+</template>
+
+<script setup lang="ts">
+interface Props {
+  size?: number | string;
+  color?: string;
+}
+const props = withDefaults(defineProps<Props>(), {
+  size: '1.2em',
+  color: 'currentColor'
+});
+</script>

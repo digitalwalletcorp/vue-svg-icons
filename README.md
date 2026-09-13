@@ -46,7 +46,7 @@ import {
 
   <SvgDownload :size="20" color="#c0392b" />
   <SvgChevron direction="up" />
-  <SvgClock :hour="9" :minute="41" :duration="0" />
+  <SvgClock :hour="9" :minute="41" :duration="10" />
 </template>
 
 ```
@@ -120,6 +120,7 @@ Standalone UI icons with no direct emoji counterparts.
 | `SvgDownloadAll` | `size`, `color`, `strokeWidth`, `topLineWidth` |
 | `SvgDownload` | `size`, `color`, `strokeWidth` |
 | `SvgEye` | `size`, `color`, `strokeWidth`, `slashed` |
+| `SvgFitScreen` | `size`, `color` |
 | `SvgPointingTriangle` | `direction`, `size`, `color` |
 | `SvgReset` | `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 

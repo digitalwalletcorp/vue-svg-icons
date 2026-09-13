@@ -19,6 +19,7 @@ export { default as SvgDownloadAll } from './svg-download-all.vue';
 export { default as SvgDownload } from './svg-download.vue';
 export { default as SvgEye } from './svg-eye.vue';
 export { default as SvgEyes } from './svg-eyes.vue';
+export { default as SvgFitScreen } from './svg-fit-screen.vue';
 export { default as SvgGear } from './svg-gear.vue';
 export { default as SvgHeavyMinusSign } from './svg-heavy-minus-sign.vue';
 export { default as SvgHeavyPlusSign } from './svg-heavy-plus-sign.vue';
