@@ -1,6 +1,6 @@
 {
   "name": "@digitalwalletcorp/vue-svg-icons",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "description": "Original SVG icons for Unicode emoji characters, shipped as Vue 3 components",
   "main": "lib/index.cjs",
@@ -12,6 +12,18 @@
       "types": "./lib/index.d.ts",
       "import": "./lib/index.js",
       "require": "./lib/index.cjs"
+    },
+    "./nuxt": {
+      "types": "./lib/nuxt.d.ts",
+      "import": "./lib/nuxt.js"
+    },
+    "./register": {
+      "types": "./lib/register.d.ts",
+      "import": "./lib/register.js",
+      "require": "./lib/register.cjs"
+    },
+    "./global": {
+      "types": "./global.d.ts"
     },
     "./*": {
       "types": "./lib/*.d.ts",
@@ -51,15 +63,18 @@
   },
   "files": [
     "lib/**/*",
-    "src/**/*"
+    "src/**/*",
+    "global.d.ts"
   ],
   "peerDependencies": {
     "vue": "^3.5.0"
   },
   "devDependencies": {
+    "@nuxt/kit": "^3.17.5",
     "@types/node": "24.0.8",
     "@vitejs/plugin-vue": "^6.0.0",
     "@vitest/coverage-v8": "3.2.4",
+    "nuxt": "^3.17.5",
     "typescript": "6.0.3",
     "vite": "^7.0.0",
     "vite-plugin-dts": "5.1.0",

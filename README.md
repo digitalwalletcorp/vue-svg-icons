@@ -10,10 +10,9 @@ Every icon is drawn from scratch using basic SVG primitives. No emoji font glyph
 
 #### ✨ Features
 
-* **Zero configuration required**: Pre-compiled components that work out of the box. No extra bundler or plugin setups (like `@vitejs/plugin-vue` or transpilation rules) needed in your project.
-* **Tree-shakeable**: Only import what you use. Importing a single icon won't bundle the rest of the library.
+* **Tree-shaking**: Only import what you use. Importing a single icon won't bundle the rest of the library.
 * **Fully typed**: Type definitions are included, allowing your editor to auto-complete props and default values automatically.
-* **SSR safe**: Fully compatible with server-side rendering. Animations safely trigger after mounting.
+* **SSR-safe**: Fully compatible with server-side rendering. Animations safely trigger after mounting.
 * **Scales with text**: Defaults to `1.2em` in size, naturally matching surrounding inline text without extra CSS.
 * **Collision-free IDs**: Components utilizing gradients or clipping paths use isolated element IDs, preventing display bugs when rendering multiple identical icons on the same page.
 * **Peer dependency**: Requires Vue 3.5 or later.
@@ -29,7 +28,19 @@ yarn add @digitalwalletcorp/vue-svg-icons
 
 #### 📖 Usage
 
-Import the icons you need and place them in your template. All icons accept the `size` prop; refer to the Props table below for icon-specific properties.
+There are three ways to use the icons. Choose the one that best fits your project.
+
+|                                                                         | When to use                                                      | Bundled icons                 |
+| ----------------------------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------- |
+| [Import individually](#1-import-icons-individually)                     | When you want to minimize bundle size or prefer explicit imports | Only the icons you import     |
+| [Register all icons globally (Vue)](#2-register-all-icons-globally-vue) | When you want to use icons without importing them in each file   | All icons                     |
+| [Register icons globally (Nuxt)](#3-register-icons-globally-nuxt)       | When you want to use icons globally in a Nuxt project            | Only the icons you use        |
+
+> **Note:** In Nuxt, icons are registered globally, but only the icons actually used in your templates are included in the bundle.
+
+##### 1. Import icons individually
+
+Import the icons you need in each file and use them in your template.
 
 ```vue
 <script setup lang="ts">
@@ -43,15 +54,59 @@ import {
 
 <template>
   <p>Upload finished <SvgWhiteHeavyCheckMark /></p>
-
   <SvgDownload :size="20" color="#c0392b" />
   <SvgChevron direction="up" />
-  <SvgClock :hour="9" :minute="41" :duration="10" />
+  <SvgClock :hour="9" :minute="41" :duration="60" />
 </template>
+```
 
+##### 2. Register all icons globally (Vue)
+
+Call `registerIcons()` once when you create the app. All icons then become available in any template without importing them.
+
+```ts
+// main.ts
+import { createApp } from 'vue';
+import { registerIcons } from '@digitalwalletcorp/vue-svg-icons/register';
+import App from './App.vue';
+
+const app = createApp(App);
+registerIcons(app);
+app.mount('#app');
+```
+
+```vue
+<template>
+  <!-- no import needed -->
+  <SvgDownload :size="20" color="#c0392b" />
+  <SvgChevron direction="up" />
+</template>
+```
+
+This registers every icon, so all icons are included in the bundle. If bundle size matters, import icons individually instead.
+
+##### 3. Register icons globally (Nuxt)
+
+Add the Nuxt module to `nuxt.config.ts`. Icons are automatically available in any template without imports, and no additional type setup is required.
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  modules: ['@digitalwalletcorp/vue-svg-icons/nuxt']
+});
+```
+
+```vue
+<template>
+  <!-- no import needed -->
+  <SvgDownload :size="20" color="#c0392b" />
+  <SvgChevron direction="up" />
+</template>
 ```
 
 #### 🔧 Props
+
+All icons accept the `size` prop. See the Props table below for icon-specific properties.
 
 *Note: Default values vary per icon. Your editor will auto-complete accepted values through the included type definitions.*
 
@@ -68,7 +123,7 @@ import {
 | `cornerRadius` | `number` | For button-style icons: controls the corner radius of the background plate. |
 | `topLineWidth` | `number` | Thickness of the top horizontal bar (e.g., on download icons). |
 | `duration` | `number` | Animation duration in seconds. Lower values run faster; `0` stops the animation completely. |
-| `hour` / `minute` | `number` | Sets the initial time displayed on clock icons. |
+| `hour` / `minute` | `number` | Sets the starting time displayed on clock icons. |
 
 #### 📚 Icon Catalog
 
@@ -97,7 +152,6 @@ import {
 | `SvgPrinter` | 🖨 `PRINTER` | `size` |
 | `SvgPushpin` | 📌 `PUSHPIN` | `direction`, `size` |
 | `SvgRoundPushpin` | 📍 `ROUND PUSHPIN` | `size` |
-| `SvgTrashbox` | 🗑 `WASTEBASKET` | `size` |
 | `SvgTriangleButton` | 🔽 `DOWN-POINTING SMALL RED TRIANGLE` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgTriangleDoubleButton` | ⏬ `BLACK DOWN-POINTING DOUBLE TRIANGLE` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgWarningSign` | ⚠️ `WARNING SIGN` | `size` |
@@ -123,6 +177,7 @@ Standalone UI icons with no direct emoji counterparts.
 | `SvgFitScreen` | `size`, `color` |
 | `SvgPointingTriangle` | `direction`, `size`, `color` |
 | `SvgReset` | `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
+| `SvgTrashbox` | `size` |
 
 #### 🎨 Artwork & Copyright
 

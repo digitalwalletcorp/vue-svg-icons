@@ -1,6 +1,5 @@
 <!--
-UTF-8絵文字🗑(WASTEBASKET)をイメージしたアイコン
-蓋付きのゴミ箱バージョン
+蓋付きのゴミ箱をイメージしたアイコン
 linearGradient/useのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>
