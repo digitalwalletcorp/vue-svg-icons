@@ -1,6 +1,5 @@
 <!--
 UTF-8絵文字🗑(WASTEBASKET)をイメージしたアイコン
-金属メッシュのワイヤーバスケット版
 linearGradient/useのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>

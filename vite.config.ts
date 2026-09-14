@@ -10,7 +10,11 @@ const SRC = fileURLToPath(new URL('./src', import.meta.url));
  * アイコンを1つずつエントリにする。
  * 1ファイルにまとめると、1つimportしただけで全アイコンがバンドルされてしまう。
  */
-const entries: Record<string, string> = { index: 'src/index.ts' };
+const entries: Record<string, string> = {
+  index: 'src/index.ts',
+  nuxt: 'src/nuxt.ts',
+  register: 'src/register.ts'
+};
 for (const fileName of readdirSync(SRC).filter((name) => name.endsWith('.vue')).sort()) {
   entries[fileName.replace(/\.vue$/, '')] = `src/${fileName}`;
 }
@@ -36,7 +40,10 @@ export default defineConfig({
     emptyOutDir: true,
     lib: { entry: entries },
     rollupOptions: {
-      external: ['vue'],
+      external: [
+        'vue',
+        '@nuxt/kit'
+      ],
       output: [
         { format: 'es', entryFileNames: '[name].js' },
         { format: 'cjs', entryFileNames: '[name].cjs', exports: 'named' }
