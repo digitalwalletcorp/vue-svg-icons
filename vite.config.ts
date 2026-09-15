@@ -1,4 +1,4 @@
-import { readdirSync } from 'node:fs';
+import { copyFileSync, readdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
@@ -19,6 +19,17 @@ for (const fileName of readdirSync(SRC).filter((name) => name.endsWith('.vue')).
   entries[fileName.replace(/\.vue$/, '')] = `src/${fileName}`;
 }
 
+/** グローバル型定義をlibにコピーする */
+const copyGlobalDts = {
+  name: 'copy-global-dts',
+  writeBundle() {
+    copyFileSync(
+      'src/types/global.d.ts',
+      'lib/global.d.ts'
+    );
+  }
+};
+
 export default defineConfig({
   plugins: [
     vue(),
@@ -31,7 +42,8 @@ export default defineConfig({
         filePath: filePath.replace(/\.vue\.d\.ts$/, '.d.ts'),
         content: content.replace(/(from\s+['"][^'"]+)\.vue(['"])/g, '$1$2')
       })
-    })
+    }),
+    copyGlobalDts
   ],
   build: {
     outDir: 'lib',

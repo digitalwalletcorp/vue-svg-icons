@@ -1,9 +1,9 @@
 import { readdirSync } from 'node:fs';
 import { join } from 'node:path';
+import { mount } from '@vue/test-utils';
 import { describe, it, expect } from 'vitest';
-import { createSSRApp, type Component } from 'vue';
-import { renderToString } from 'vue/server-renderer';
-import * as icons from '../../lib/index.js';
+import type { Component } from 'vue';
+import * as icons from '@/index';
 
 const entries = Object.entries(icons) as [string, Component][];
 
@@ -15,9 +15,9 @@ describe('exported icons', () => {
   });
 
   describe.each(entries)('%s', (_name, component) => {
-    it('renders without error and has a viewBox', async () => {
-      const html = await renderToString(createSSRApp(component));
-      expect(html).toMatch(/^<svg /);
+    it('renders an svg with a viewBox', () => {
+      const html = mount(component).html();
+      expect(html).toMatch(/^<svg/);
       expect(html).toContain('viewBox=');
     });
   });
