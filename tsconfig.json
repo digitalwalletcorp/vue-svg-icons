@@ -9,7 +9,8 @@
     "moduleResolution": "bundler",
     /* baseUrl はTS6で非推奨。pathsはtsconfigの位置基準で解決されるため単独で使う */
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "#/*": ["./test/*"]
     },
     "resolveJsonModule": true,
     "types": [

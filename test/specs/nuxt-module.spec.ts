@@ -1,8 +1,9 @@
+// @vitest-environment node
 import { fileURLToPath } from 'node:url';
 import { describe, it, expect } from 'vitest';
 import { loadNuxt } from 'nuxt';
 import type { Component } from '@nuxt/schema';
-import * as icons from '../../lib/index.js';
+import * as icons from '@/index';
 
 const FIXTURE = fileURLToPath(new URL('../fixtures/nuxt-app', import.meta.url));
 

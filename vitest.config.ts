@@ -1,11 +1,14 @@
 // eslint-disable-next-line spaced-comment
 /// <reference types='vitest' />
+import vue from '@vitejs/plugin-vue';
+import tsconfigPaths from 'vite-tsconfig-paths';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
+  plugins: [tsconfigPaths(), vue()],
   test: {
-    environment: 'node',
-    // テスト対象はビルド済みのlib/。配布物そのものを検証する
+    // このプロジェクトはvueコンポーネントを含むため、テスト環境はDOM(happy-dom)にする
+    environment: 'happy-dom',
     include: [
       'test/specs/**/*.spec.ts'
     ],
@@ -17,7 +20,7 @@ export default defineConfig({
       ],
       reportsDirectory: 'test/coverage',
       include: [
-        'lib/**/*.js'
+        'src/**'
       ]
     }
   }
