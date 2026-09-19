@@ -9,9 +9,12 @@ color: 図形の色。16進数カラーコードを指定した場合は図形�
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 64 64"
+    :role="props.title == null ? undefined : 'img'"
+    :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
   >
+    <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
       <!-- 面: 中央上部の光→外周の濃色(objectBoundingBox基準) -->
       <radialGradient :id="faceGradId" cx="0.5" cy="0.32" r="0.75">
@@ -42,6 +45,8 @@ interface Props {
   size?: number | string;
   /** 菱形の色。🔷なら#153aac、🔸なら#f09536 */
   color?: string;
+  /** 読み上げ名。指定するとrole="img"と<title>を出力する。未指定なら装飾アイコンとして扱う */
+  title?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   variant: 'large',

@@ -6,8 +6,11 @@ UTF-8絵文字📍(ROUND PUSHPIN)をイメージしたアイコン
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="16 20 128 128"
+    :role="props.title == null ? undefined : 'img'"
+    :aria-hidden="props.title == null ? 'true' : undefined"
     :style="{ height: sizeStyle }"
   >
+    <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
       <!-- 球: 左上の光→右下の深い赤 -->
       <radialGradient :id="ballGradId" cx="0.38" cy="0.32" r="0.78">
@@ -56,6 +59,8 @@ import { computed, useId } from 'vue';
 interface Props {
   /** 表示サイズ(高さ)。数値はpxとして扱う */
   size?: number | string;
+  /** 読み上げ名。指定するとrole="img"と<title>を出力する。未指定なら装飾アイコンとして扱う */
+  title?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   size: '1.2em'
