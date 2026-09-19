@@ -110,13 +110,14 @@ export default defineNuxtConfig({
 
 #### 🔧 Props
 
-All icons accept the `size` prop. See the Props table below for icon-specific properties.
+All icons accept the `size` and `title` props. See the Props table below for icon-specific properties.
 
 *Note: Default values vary per icon. Your editor will auto-complete accepted values through the included type definitions.*
 
 | Prop | Type | Description |
 | --- | --- | --- |
 | `size` | `number \| string` | Icon size. Numbers are treated as pixels; strings accept any valid CSS length unit. Defaults to `1.2em` to match surrounding font size. |
+| `title` | `string` | Accessible name. When given, the icon renders `role="img"` and an SVG `<title>`, which browsers also show as a native tooltip. When omitted, the icon is treated as decorative and rendered with `aria-hidden="true"`. |
 | `color` | `string` | Stroke or fill color. Line-art icons inherit the surrounding text color by default (`currentColor`). |
 | `strokeWidth` | `number` | Line thickness relative to the icon's 64-unit coordinate grid. |
 | `direction` | string literal | Orientation of the icon (e.g., `'up'`, `'down'`, `'left'`, `'right'`, etc.). |

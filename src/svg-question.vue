@@ -6,11 +6,12 @@
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 64 64"
-    role="img"
+    :role="props.title == null ? undefined : 'img'"
+    :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
   >
-    <title>Question</title>
+    <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
       <radialGradient :id="faceGradId" cx="0.4" cy="0.3" r="0.85">
         <stop offset="0" stop-color="#7fb0ff" />
@@ -46,6 +47,8 @@
 import { useId } from 'vue';
 interface Props {
   size?: number | string;
+  /** 読み上げ名。指定するとrole="img"と<title>を出力する。未指定なら装飾アイコンとして扱う */
+  title?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   size: '1.2em'

@@ -20,5 +20,19 @@ describe('exported icons', () => {
       expect(html).toMatch(/^<svg/);
       expect(html).toContain('viewBox=');
     });
+
+    it('is decorative when no title is given', () => {
+      const html = mount(component).html();
+      expect(html).toContain('aria-hidden="true"');
+      expect(html).not.toContain('role="img"');
+      expect(html).not.toMatch(/<title>/);
+    });
+
+    it('exposes the title as an accessible name when given', () => {
+      const html = mount(component, { props: { title: 'Accessible name' } }).html();
+      expect(html).toContain('role="img"');
+      expect(html).toContain('<title>Accessible name</title>');
+      expect(html).not.toContain('aria-hidden');
+    });
   });
 });

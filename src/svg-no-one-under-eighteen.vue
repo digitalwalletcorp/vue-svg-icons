@@ -6,11 +6,12 @@ linearGradientのid参照があるため、複数インスタンスでの衝突�
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 64 64"
-    role="img"
+    :role="props.title == null ? undefined : 'img'"
+    :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
   >
-    <title>No one under eighteen</title>
+    <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
       <!-- 黒地 -->
       <linearGradient :id="faceGradId" x1="0" y1="0" x2="0" y2="1">
@@ -63,6 +64,8 @@ linearGradientのid参照があるため、複数インスタンスでの衝突�
 import { useId } from 'vue';
 interface Props {
   size?: number | string;
+  /** 読み上げ名。指定するとrole="img"と<title>を出力する。未指定なら装飾アイコンとして扱う */
+  title?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   size: '1.2em'

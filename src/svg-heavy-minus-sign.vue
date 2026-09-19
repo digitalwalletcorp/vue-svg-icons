@@ -5,9 +5,12 @@ UTF-8絵文字➖(HEAVY MINUS SIGN)をイメージしたアイコン
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 64 64"
+    :role="props.title == null ? undefined : 'img'"
+    :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
   >
+    <title v-if="props.title != null">{{ props.title }}</title>
     <path
       d="M12 32 H52"
       :stroke="props.color"
@@ -22,6 +25,8 @@ UTF-8絵文字➖(HEAVY MINUS SIGN)をイメージしたアイコン
 interface Props {
   size?: number | string;
   color?: string;
+  /** 読み上げ名。指定するとrole="img"と<title>を出力する。未指定なら装飾アイコンとして扱う */
+  title?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   size: '1.2em',

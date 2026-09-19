@@ -6,9 +6,12 @@ UTF-8絵文字❌(CROSS MARK)をイメージしたアイコン
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 64 64"
+    :role="props.title == null ? undefined : 'img'"
+    :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
   >
+    <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
       <!-- 面: 中央の明るい赤→端の深い赤 -->
       <radialGradient :id="faceGradId" cx="0.5" cy="0.42" r="0.65">
@@ -48,6 +51,8 @@ UTF-8絵文字❌(CROSS MARK)をイメージしたアイコン
 import { useId } from 'vue';
 interface Props {
   size?: number | string;
+  /** 読み上げ名。指定するとrole="img"と<title>を出力する。未指定なら装飾アイコンとして扱う */
+  title?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   size: '1.2em'

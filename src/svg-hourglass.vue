@@ -7,10 +7,11 @@ clip-pathのid参照があるため、複数インスタンスでの衝突を避
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="250 40 180 260"
-    role="img"
+    :role="props.title == null ? undefined : 'img'"
+    :aria-hidden="props.title == null ? 'true' : undefined"
     :style="{ height: sizeStyle, display: 'inline-block', width: 'auto', verticalAlign: '-0.2em' }"
   >
-    <title>Animated hourglass</title>
+    <title v-if="props.title != null">{{ props.title }}</title>
     <desc>Hourglass emoji style illustration with sand flowing in an endless loop</desc>
     <defs>
       <clipPath :id="topClipId">
@@ -75,6 +76,8 @@ interface Props {
   duration?: number;
   /** 表示サイズ(高さ)。数値はpxとして扱う */
   size?: number | string;
+  /** 読み上げ名。指定するとrole="img"と<title>を出力する。未指定なら装飾アイコンとして扱う */
+  title?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   duration: 12,
