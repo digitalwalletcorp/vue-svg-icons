@@ -1,6 +1,6 @@
 {
   "name": "@digitalwalletcorp/vue-svg-icons",
-  "version": "1.2.1",
+  "version": "1.3.0",
   "type": "module",
   "description": "Original SVG icons for Unicode emoji characters, shipped as Vue 3 components",
   "main": "lib/index.cjs",
@@ -48,6 +48,7 @@
     "icons",
     "vue",
     "vue3",
+    "nuxt",
     "unicode",
     "emoji"
   ],

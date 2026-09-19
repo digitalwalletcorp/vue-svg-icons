@@ -26,6 +26,10 @@ yarn add @digitalwalletcorp/vue-svg-icons
 
 ```
 
+> ##### ⚠️ Requirements
+>
+> * **Vue 3.5.0+**: This library uses Vue's built-in `useId()` helper to generate unique element IDs, requiring **Vue 3.5.0 or later**.
+
 #### 📖 Usage
 
 There are three ways to use the icons. Choose the one that best fits your project.
@@ -170,12 +174,15 @@ Standalone UI icons with no direct emoji counterparts.
 | `SvgClipboardCopy` | `size` |
 | `SvgCornerDiagonal` | `direction`, `size`, `color`, `strokeWidth` |
 | `SvgCornerDot` | `direction`, `size`, `color` |
+| `SvgCritical` | `size` |
 | `SvgDot` | `size`, `color` |
 | `SvgDownloadAll` | `size`, `color`, `strokeWidth`, `topLineWidth` |
 | `SvgDownload` | `size`, `color`, `strokeWidth` |
 | `SvgEye` | `size`, `color`, `strokeWidth`, `slashed` |
 | `SvgFitScreen` | `size`, `color` |
+| `SvgInfo` | `size` |
 | `SvgPointingTriangle` | `direction`, `size`, `color` |
+| `SvgQuestion` | `size` |
 | `SvgReset` | `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgTrashbox` | `size` |
 
