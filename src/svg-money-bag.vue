@@ -1,7 +1,7 @@
 <!--
 UTF-8絵文字💰(MONEY BAG)をイメージしたアイコン
 絞り口+ひだ+洋梨型の袋+ストローク描画の$記号。
-グラデーションのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
+id参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>
   <svg
@@ -108,6 +108,7 @@ UTF-8絵文字💰(MONEY BAG)をイメージしたアイコン
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+
 interface Props {
   /** 表示サイズ(高さ)。数値はpxとして扱う */
   size?: number | string;

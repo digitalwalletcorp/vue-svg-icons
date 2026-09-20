@@ -1,7 +1,7 @@
 <!--
 UTF-8絵文字🔍(LEFT-POINTING MAGNIFYING GLASS)をイメージしたアイコン
 direction: 虫眼鏡の方向を変えることができる
-radialGradientのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
+id参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>
   <svg
@@ -47,6 +47,7 @@ radialGradientのid参照があるため、複数インスタンスでの衝突�
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+
 interface Props {
   direction?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
   /** 表示サイズ(高さ)。数値はpxとして扱う */

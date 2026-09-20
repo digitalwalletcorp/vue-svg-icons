@@ -135,6 +135,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `flipSeconds` | `number` | Seconds spent flipping a single sheet on `SvgCalendar`. Raising `duration` lengthens the pause between flips without slowing the flip itself. Defaults to `0.45`. When `duration` is shorter than this, the flip takes the whole day instead. |
 | `hour` / `minute` | `number` | Sets the starting time displayed on clock icons. |
 | `date` | `string` | Start date for calendar icons, in `yyyyMMdd` format. The year is never displayed, but it decides whether February has 29 days. Defaults to `20280229`, so the icon still reads `FEB 29` when the prop is omitted. A calendar animates only when `date` is a day that really exists and `duration` is given: a malformed value falls back to the default date, and a date that does not exist in that year (`20260229`, `20260431`) is still displayed as given, but neither one animates. |
+| `moonAge` | `number` | Moon age in days for `SvgMoonPhases`, driving the lit shape through the phases. `0` = new moon, ~`7.4` = first quarter, ~`14.8` = full moon, ~`22.1` = last quarter (synodic period 29.53 days). Any value is accepted and wraps within the cycle. Defaults to `3`. |
 
 #### 📚 Icon Catalog
 
@@ -153,10 +154,12 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgGear` | ⚙️ `GEAR` | `size` |
 | `SvgHeavyMinusSign` | ➖ `HEAVY MINUS SIGN` | `size`, `color` |
 | `SvgHeavyPlusSign` | ➕ `HEAVY PLUS SIGN` | `size`, `color` |
+| `SvgHighBrightness` | 🔆 `HIGH BRIGHTNESS SYMBOL` | `size` |
 | `SvgHourglass` | ⏳ `HOURGLASS WITH FLOWING SAND` | `duration`, `size` |
 | `SvgMagnifyingGlass` | 🔍 `LEFT-POINTING MAGNIFYING GLASS` | `direction`, `size` |
 | `SvgMemo` | 📝 `MEMO` | `size` |
 | `SvgMoneyBag` | 💰 `MONEY BAG` | `size` |
+| `SvgMoonPhases` | 🌑🌒🌓🌔🌕🌖🌗🌘 `MOON PHASES` | `moonAge`, `size` |
 | `SvgNegativeSquaredCrossMark` | ❎ `NEGATIVE SQUARED CROSS MARK` | `size` |
 | `SvgNoOneUnderEighteen` | 🔞 `NO ONE UNDER EIGHTEEN` | `size` |
 | `SvgOpenBook` | 📖 `OPEN BOOK` | `size` |

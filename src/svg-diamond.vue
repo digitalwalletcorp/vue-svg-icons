@@ -1,9 +1,9 @@
 <!--
 UTF-8絵文字🔷(LARGE BLUE DIAMOND)/🔸(SMALL ORANGE DIAMOND)をイメージしたアイコン
-グラデーションのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 variant: large/medium/small 図形の大きさ(菱形の半径)を変える。文字サイズ(size)とは独立
 size: 文字サイズ
 color: 図形の色。16進数カラーコードを指定した場合は図形にグラデーションがかかる。redなどのカラーネームを指定した場合はグラデーションがかからない。
+id参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>
   <svg
@@ -38,6 +38,7 @@ color: 図形の色。16進数カラーコードを指定した場合は図形�
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+
 interface Props {
   /** large=🔷相当(キャンバスいっぱい)、medium=中間、small=🔸相当(余白大きめ) */
   variant?: 'large' | 'medium' | 'small';

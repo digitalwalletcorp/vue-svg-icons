@@ -3,7 +3,7 @@ UTF-8絵文字🕓(CLOCK FACE FOUR OCLOCK)をイメージしたアイコン(ア�
 hour: 時針の指す時刻(0〜23。12以上は12を引いた位置)
 minute: 分針の指す分(0〜59)。hourと合わせて開始時刻になる
 duration: 分針が1周する秒数(=時計の1時間)。小さいほど速い。0以下で静止
-linearGradientのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
+id参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>
   <svg
@@ -65,6 +65,7 @@ linearGradientのid参照があるため、複数インスタンスでの衝突�
 
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted, useId } from 'vue';
+
 interface Props {
   /** 時針の指す時刻(0〜23) */
   hour?: number;

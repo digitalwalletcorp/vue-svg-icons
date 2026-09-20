@@ -1,7 +1,7 @@
 <!--
 UTF-8絵文字🔄(ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS)をイメージしたアイコン
 ボタン形式のリロード(反時計回り循環矢印)アイコン
-linearGradient/useのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
+id参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>
   <svg
@@ -49,6 +49,7 @@ linearGradient/useのid参照があるため、複数インスタンスでの衝
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+
 interface Props {
   size?: number | string;
   bgColor?: string;
