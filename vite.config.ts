@@ -31,6 +31,10 @@ const copyGlobalDts = {
 };
 
 export default defineConfig({
+  // tsconfigのpathsはビルドに効かないため、同じ対応をここでも与える
+  resolve: {
+    alias: { '@': SRC }
+  },
   plugins: [
     vue(),
     // 型定義は`.vue`から起こす。`defineProps<Props>()`のリテラル型とJSDocを保つため

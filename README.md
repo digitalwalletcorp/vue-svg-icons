@@ -8,6 +8,8 @@ Every icon is drawn from scratch using basic SVG primitives. No emoji font glyph
 
 ![Icon catalog](https://raw.githubusercontent.com/digitalwalletcorp/vue-svg-icons/main/docs/catalog.png)
 
+**[Open the interactive demo](https://digitalwalletcorp.github.io/vue-svg-icons/demo/)** to browse every icon and edit its props to see how it renders.
+
 #### ✨ Features
 
 * **Tree-shaking**: Only import what you use. Importing a single icon won't bundle the rest of the library.
@@ -52,7 +54,8 @@ import {
   SvgWhiteHeavyCheckMark,
   SvgDownload,
   SvgChevron,
-  SvgClock
+  SvgClock,
+  SvgCalendar
 } from '@digitalwalletcorp/vue-svg-icons';
 </script>
 
@@ -61,6 +64,7 @@ import {
   <SvgDownload :size="20" color="#c0392b" />
   <SvgChevron direction="up" />
   <SvgClock :hour="9" :minute="41" :duration="60" />
+  <SvgCalendar date="20260920" :duration="3" />
 </template>
 ```
 
@@ -127,8 +131,10 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `bgColor` / `borderColor` / `arrowColor` | `string` | For button-style icons: sets the background plate color, border color, and foreground symbol color. |
 | `cornerRadius` | `number` | For button-style icons: controls the corner radius of the background plate. |
 | `topLineWidth` | `number` | Thickness of the top horizontal bar (e.g., on download icons). |
-| `duration` | `number` | Animation duration in seconds. Lower values run faster; `0` stops the animation completely. |
+| `duration` | `number` | Animation duration in seconds. Lower values run faster; `0` stops the animation completely. On `SvgCalendar` it is the time one day takes to pass. |
+| `flipSeconds` | `number` | Seconds spent flipping a single sheet on `SvgCalendar`. Raising `duration` lengthens the pause between flips without slowing the flip itself. Defaults to `0.45`. When `duration` is shorter than this, the flip takes the whole day instead. |
 | `hour` / `minute` | `number` | Sets the starting time displayed on clock icons. |
+| `date` | `string` | Start date for calendar icons, in `yyyyMMdd` format. The year is never displayed, but it decides whether February has 29 days. Defaults to `20280229`, so the icon still reads `FEB 29` when the prop is omitted. A calendar animates only when `date` is a day that really exists and `duration` is given: a malformed value falls back to the default date, and a date that does not exist in that year (`20260229`, `20260431`) is still displayed as given, but neither one animates. |
 
 #### 📚 Icon Catalog
 
@@ -139,7 +145,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgAnticlockwiseOpenCircleArrows` | 🔄 `ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS` | `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgArrowButton` | ➡️ `BLACK RIGHTWARDS ARROW` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgBooks` | 📚 `BOOKS` | `size` |
-| `SvgCalendar` | 📅 `CALENDAR` | `size` |
+| `SvgCalendar` | 📅 `CALENDAR` | `date`, `duration`, `flipSeconds`, `size` |
 | `SvgClock` | 🕓 `CLOCK FACE FOUR OCLOCK` | `hour`, `minute`, `duration`, `size` |
 | `SvgCrossMark` | ❌ `CROSS MARK` | `size` |
 | `SvgDiamond` | 🔷 `LARGE BLUE DIAMOND` | `variant`, `size`, `color` |
