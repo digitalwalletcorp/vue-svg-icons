@@ -2,7 +2,7 @@
 UTF-8絵文字🔽(DOWN-POINTING SMALL RED TRIANGLE)をイメージしたアイコン
 ボタン形式の三角アイコン(既定は下向き)
 direction: 三角の向きを変更可能
-linearGradientのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
+id参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>
   <svg
@@ -41,6 +41,7 @@ linearGradientのid参照があるため、複数インスタンスでの衝突�
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+
 interface Props {
   direction?: 'up' | 'down' | 'left' | 'right';
   size?: number | string;

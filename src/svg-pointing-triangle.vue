@@ -25,6 +25,7 @@ direction: 三角の向きを変更可能
 
 <script setup lang="ts">
 import { computed } from 'vue';
+
 interface Props {
   direction?: 'up' | 'down' | 'left' | 'right';
   size?: number | string;

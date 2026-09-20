@@ -33,6 +33,7 @@ direction: 斜線の配置位置を変更可能
 
 <script setup lang="ts">
 import { computed } from 'vue';
+
 /**
  * コーナー系: 隅に寄せたリサイズグリップ(斜線3本)。
  * directionは寄せる角。基準の右下版を回転させて4隅を表現する

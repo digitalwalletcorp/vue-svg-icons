@@ -1,6 +1,6 @@
 <!--
 UTF-8絵文字📖(OPEN BOOK)をイメージしたアイコン
-linearGradient/useのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
+id参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>
   <svg
@@ -82,6 +82,7 @@ linearGradient/useのid参照があるため、複数インスタンスでの衝
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+
 interface Props {
   /** 表示サイズ(高さ)。数値はpxとして扱う */
   size?: number | string;

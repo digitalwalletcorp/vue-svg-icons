@@ -1,7 +1,7 @@
 <!--
 UTF-8絵文字⏳(HOURGLASS WITH FLOWING SAND)をイメージしたアイコン(アニメーションサポート)。
 duration: 砂が落ち切るまでの秒数。1分計とみなし60で実時間。小さいほど速い。0以下で静止
-clip-pathのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
+id参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>
   <svg
@@ -71,6 +71,7 @@ clip-pathのid参照があるため、複数インスタンスでの衝突を避
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+
 interface Props {
   /** 砂が落ち切るまでの秒数(SMILのdurにバインド。同期する3アニメに適用)。0以下で静止 */
   duration?: number;

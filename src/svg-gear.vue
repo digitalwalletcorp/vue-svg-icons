@@ -1,6 +1,6 @@
 <!--
 UTF-8絵文字⚙️(GEAR)をイメージしたアイコン
-linearGradient/useのid参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
+id参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
 -->
 <template>
   <svg
@@ -65,6 +65,7 @@ linearGradient/useのid参照があるため、複数インスタンスでの衝
 
 <script setup lang="ts">
 import { useId } from 'vue';
+
 interface Props {
   size?: number | string;
   /** 読み上げ名。指定するとrole="img"と<title>を出力する。未指定なら装飾アイコンとして扱う */
