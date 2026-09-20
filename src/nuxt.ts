@@ -1,5 +1,5 @@
 import { addComponent, createResolver, defineNuxtModule } from '@nuxt/kit';
-import * as icons from './icons';
+import * as icons from '@/icons';
 
 /**
  * アイコンをNuxtのコンポーネント自動importへ登録するモジュール。

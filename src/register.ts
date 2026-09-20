@@ -1,5 +1,5 @@
 import type { App } from 'vue';
-import * as icons from './icons';
+import * as icons from '@/icons';
 
 type SvgIcons = typeof icons;
 
