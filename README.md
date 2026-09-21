@@ -136,6 +136,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `hour` / `minute` | `number` | Sets the starting time displayed on clock icons. |
 | `date` | `string` | Start date for calendar icons, in `yyyyMMdd` format. The year is never displayed, but it decides whether February has 29 days. Defaults to `20280229`, so the icon still reads `FEB 29` when the prop is omitted. A calendar animates only when `date` is a day that really exists and `duration` is given: a malformed value falls back to the default date, and a date that does not exist in that year (`20260229`, `20260431`) is still displayed as given, but neither one animates. |
 | `moonAge` | `number` | Moon age in days for `SvgMoonPhases`, driving the lit shape through the phases. `0` = new moon, ~`7.4` = first quarter, ~`14.8` = full moon, ~`22.1` = last quarter (synodic period 29.53 days). Any value is accepted and wraps within the cycle. Defaults to `3`. |
+| `angle` | `number` | Rotation of the whole moon in degrees, clockwise. Negative values and values beyond `360` are accepted. Around `30`–`40` gives a crescent its familiar tilt. Defaults to `0` (no rotation). |
 
 #### 📚 Icon Catalog
 
@@ -147,6 +148,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgArrowButton` | ➡️ `BLACK RIGHTWARDS ARROW` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgBooks` | 📚 `BOOKS` | `size` |
 | `SvgCalendar` | 📅 `CALENDAR` | `date`, `duration`, `flipSeconds`, `size` |
+| `SvgCircle` | 🟠 `LARGE ORANGE CIRCLE` | `variant`, `size`, `color` |
 | `SvgClock` | 🕓 `CLOCK FACE FOUR OCLOCK` | `hour`, `minute`, `duration`, `size` |
 | `SvgCrossMark` | ❌ `CROSS MARK` | `size` |
 | `SvgDiamond` | 🔷 `LARGE BLUE DIAMOND` | `variant`, `size`, `color` |
@@ -159,13 +161,14 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgMagnifyingGlass` | 🔍 `LEFT-POINTING MAGNIFYING GLASS` | `direction`, `size` |
 | `SvgMemo` | 📝 `MEMO` | `size` |
 | `SvgMoneyBag` | 💰 `MONEY BAG` | `size` |
-| `SvgMoonPhases` | 🌑🌒🌓🌔🌕🌖🌗🌘 `MOON PHASES` | `moonAge`, `size` |
+| `SvgMoonPhases` | 🌑🌒🌓🌔🌕🌖🌗🌘 `MOON PHASES` | `moonAge`, `angle`, `size` |
 | `SvgNegativeSquaredCrossMark` | ❎ `NEGATIVE SQUARED CROSS MARK` | `size` |
 | `SvgNoOneUnderEighteen` | 🔞 `NO ONE UNDER EIGHTEEN` | `size` |
 | `SvgOpenBook` | 📖 `OPEN BOOK` | `size` |
 | `SvgPrinter` | 🖨 `PRINTER` | `size` |
 | `SvgPushpin` | 📌 `PUSHPIN` | `direction`, `size` |
 | `SvgRoundPushpin` | 📍 `ROUND PUSHPIN` | `size` |
+| `SvgSquare` | 🟥 `LARGE RED SQUARE` | `variant`, `size`, `color` |
 | `SvgTriangleButton` | 🔽 `DOWN-POINTING SMALL RED TRIANGLE` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgTriangleDoubleButton` | ⏬ `BLACK DOWN-POINTING DOUBLE TRIANGLE` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgWarningSign` | ⚠️ `WARNING SIGN` | `size` |

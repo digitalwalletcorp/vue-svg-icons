@@ -1,6 +1,6 @@
 <!--
-UTF-8絵文字🔷(LARGE BLUE DIAMOND)/🔸(SMALL ORANGE DIAMOND)をイメージしたアイコン
-variant: large/medium/small 図形の大きさ(菱形の半径)を変える。文字サイズ(size)とは独立
+UTF-8絵文字🟥(LARGE RED SQUARE)などの色付きの角丸四角をイメージしたアイコン
+variant: large/medium/small 図形の大きさ(四角の半径)を変える。文字サイズ(size)とは独立
 size: 文字サイズ
 color: 図形の色。16進数カラーコードまたはredなどのカラーネームを指定でき、どちらも図形にグラデーションがかかる。解釈できない値はグラデーションのない単色になる。
 id参照があるため、複数インスタンスでの衝突を避けてuseId()でidを一意化する。
@@ -27,19 +27,24 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
         <stop offset="0" :stop-color="colorLight" />
         <stop offset="1" :stop-color="colorDark" />
       </linearGradient>
-      <!-- 上部の光沢: 下へ向かって消える白 -->
+      <!-- 上部の光沢: 下端で完全に透明へ落として面へなじませる -->
       <linearGradient :id="glossGradId" x1="0" y1="0" x2="0" y2="1">
         <stop offset="0" stop-color="#ffffff" stop-opacity="0.6" />
-        <stop offset="1" stop-color="#ffffff" stop-opacity="0.05" />
+        <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.25" />
+        <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
       </linearGradient>
+      <!-- 光沢の輪郭をぼかして面へなじませる -->
+      <filter :id="glossBlurId" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur :stdDeviation="square.glossBlur" />
+      </filter>
     </defs>
 
-    <!-- 縁(外側の菱形: 面よりわずかに大きい) -->
-    <polygon :points="diamond.rim" :fill="`url(#${rimGradId})`" />
-    <!-- 面(内側の菱形) -->
-    <polygon :points="diamond.body" :fill="`url(#${faceGradId})`" />
-    <!-- 上部の光沢(面の上半分の三角形) -->
-    <polygon :points="diamond.gloss" :fill="`url(#${glossGradId})`" />
+    <!-- 縁(外側の角丸四角: 面よりわずかに大きい) -->
+    <rect :x="CX - square.r" :y="CY - square.r" :width="square.r * 2" :height="square.r * 2" :rx="square.round" :fill="`url(#${rimGradId})`" />
+    <!-- 面(内側の角丸四角) -->
+    <rect :x="CX - square.ri" :y="CY - square.ri" :width="square.ri * 2" :height="square.ri * 2" :rx="square.roundIn" :fill="`url(#${faceGradId})`" />
+    <!-- 上部の光沢 -->
+    <rect :x="square.glossX" :y="square.glossY" :width="square.glossWidth" :height="square.glossHeight" :rx="square.glossRound" :fill="`url(#${glossGradId})`" :filter="`url(#${glossBlurId})`" />
   </svg>
 </template>
 
@@ -48,11 +53,11 @@ import { computed, useId } from 'vue';
 import { resolveNamedColor } from '@/internal/named-color';
 
 interface Props {
-  /** large=🔷相当(キャンバスいっぱい)、medium=中間、small=🔸相当(余白大きめ) */
+  /** large=キャンバスいっぱい、medium=中間、small=余白大きめ */
   variant?: 'large' | 'medium' | 'small';
   /** 文字サイズ */
   size?: number | string;
-  /** 菱形の色。🔷なら#153aac、🔸なら#f09536 */
+  /** 四角の色。🟥なら#d13a2b */
   color?: string;
   /** 読み上げ名。指定するとrole="img"と<title>を出力する。未指定なら装飾アイコンとして扱う */
   title?: string;
@@ -60,13 +65,14 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   variant: 'large',
   size: '1.2em',
-  color: '#1a44b6'
+  color: '#d13a2b'
 });
 
-const uid = (useId() ?? 'dm').replace(/[^a-zA-Z0-9_-]/g, '') || 'dm';
-const faceGradId = `diamond-face-${uid}`;
-const rimGradId = `diamond-rim-${uid}`;
-const glossGradId = `diamond-gloss-${uid}`;
+const uid = (useId() ?? 'sq').replace(/[^a-zA-Z0-9_-]/g, '') || 'sq';
+const faceGradId = `square-face-${uid}`;
+const rimGradId = `square-rim-${uid}`;
+const glossGradId = `square-gloss-${uid}`;
+const glossBlurId = `square-gloss-blur-${uid}`;
 
 /** 色を明暗方向に amount(-255〜255)だけシフトする。カラーネームは16進数へ解決してから処理する */
 const shiftColor = (color: string, amount: number): string => {
@@ -95,17 +101,22 @@ const colorDark = computed((): string => shiftColor(props.color, -64));
 const CX = 32;
 const CY = 32;
 
-/** 菱形(縁と面の二重)と上部の光沢をvariantに応じた半径から生成する */
-const diamond = computed(() => {
+/** 角丸四角(縁と面の二重)と上部の光沢をvariantに応じた半径から生成する */
+const square = computed(() => {
   const r = props.variant === 'large' ? 27 : props.variant === 'medium' ? 22 : 17;
   const rimW = Math.max(1.6, r * 0.09); // 縁の太さ(smallでも潰れない下限を確保)
   const ri = r - rimW;
-  const pts = (rr: number): string =>
-    `${CX},${CY - rr} ${CX + rr},${CY} ${CX},${CY + rr} ${CX - rr},${CY}`;
   return {
-    rim: pts(r),
-    body: pts(ri),
-    gloss: `${CX},${CY - ri * 0.92} ${CX + ri * 0.86},${CY - ri * 0.06} ${CX - ri * 0.86},${CY - ri * 0.06}`
+    r,
+    ri,
+    round: r * 0.22,
+    roundIn: ri * 0.18,
+    glossX: CX - ri * 0.84,
+    glossY: CY - ri * 0.86,
+    glossWidth: ri * 1.68,
+    glossHeight: ri * 0.62,
+    glossRound: ri * 0.12,
+    glossBlur: ri * 0.04
   };
 });
 </script>
