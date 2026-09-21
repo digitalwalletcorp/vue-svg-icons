@@ -148,6 +148,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgArrowButton` | ➡️ `BLACK RIGHTWARDS ARROW` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgBooks` | 📚 `BOOKS` | `size` |
 | `SvgCalendar` | 📅 `CALENDAR` | `date`, `duration`, `flipSeconds`, `size` |
+| `SvgCircle` | 🟠 `LARGE ORANGE CIRCLE` | `variant`, `size`, `color` |
 | `SvgClock` | 🕓 `CLOCK FACE FOUR OCLOCK` | `hour`, `minute`, `duration`, `size` |
 | `SvgCrossMark` | ❌ `CROSS MARK` | `size` |
 | `SvgDiamond` | 🔷 `LARGE BLUE DIAMOND` | `variant`, `size`, `color` |
@@ -167,6 +168,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgPrinter` | 🖨 `PRINTER` | `size` |
 | `SvgPushpin` | 📌 `PUSHPIN` | `direction`, `size` |
 | `SvgRoundPushpin` | 📍 `ROUND PUSHPIN` | `size` |
+| `SvgSquare` | 🟥 `LARGE RED SQUARE` | `variant`, `size`, `color` |
 | `SvgTriangleButton` | 🔽 `DOWN-POINTING SMALL RED TRIANGLE` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgTriangleDoubleButton` | ⏬ `BLACK DOWN-POINTING DOUBLE TRIANGLE` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgWarningSign` | ⚠️ `WARNING SIGN` | `size` |
