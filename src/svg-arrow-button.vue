@@ -20,6 +20,15 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
         <stop offset="0%" :stop-color="bgColorLight" />
         <stop offset="100%" :stop-color="bgColorDark" />
       </linearGradient>
+      <!-- 背景の光沢: 下端で透明へ落として面へなじませる -->
+      <linearGradient :id="glossGradId" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#ffffff" stop-opacity="0.6" />
+        <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.25" />
+        <stop offset="1" stop-color="#ffffff" stop-opacity="0" />
+      </linearGradient>
+      <filter :id="glossBlurId" x="-20%" y="-20%" width="140%" height="140%">
+        <feGaussianBlur stdDeviation="1.1" />
+      </filter>
     </defs>
     <rect
       x="4"
@@ -31,6 +40,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
       :stroke="props.borderColor"
       stroke-width="4"
     />
+    <rect x="8.5" y="8" width="47" height="17.5" :rx="glossRound" :fill="`url(#${glossGradId})`" :filter="`url(#${glossBlurId})`" />
     <!-- 軸+矢じりの右向き矢印(中心32,32)。directionはrotateで表現 -->
     <polygon
       points="14,27 34,27 34,18 50,32 34,46 34,37 14,37"
@@ -64,6 +74,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 const uid = (useId() ?? 'ab').replace(/[^a-zA-Z0-9_-]/g, '') || 'ab';
 const bgGradientId = `arrow-btn-bg-${uid}`;
+const glossGradId = `arrow-btn-gloss-${uid}`;
+const glossBlurId = `arrow-btn-gloss-blur-${uid}`;
 
 /** #RRGGBB を明暗方向に amount(-255〜255)だけシフトする */
 const shiftColor = (hex: string, amount: number): string => {
@@ -81,6 +93,9 @@ const shiftColor = (hex: string, amount: number): string => {
 
 const bgColorLight = computed((): string => shiftColor(props.bgColor, 24));
 const bgColorDark = computed((): string => shiftColor(props.bgColor, -28));
+
+/** 光沢の角丸。背景のcornerRadiusからインセット分を引いて丸みを追従させる */
+const glossRound = computed((): number => Math.max(props.cornerRadius - 4.5, 2));
 
 const rotation = computed(() => {
   switch (props.direction) {
