@@ -169,6 +169,8 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgPushpin` | 📌 `PUSHPIN` | `direction`, `size` |
 | `SvgRoundPushpin` | 📍 `ROUND PUSHPIN` | `size` |
 | `SvgSquare` | 🟥 `LARGE RED SQUARE` | `variant`, `size`, `color` |
+| `SvgSquaredNg` | 🆖 `SQUARED NG` | `size`, `color`, `bgColor`, `borderColor`, `cornerRadius` |
+| `SvgSquaredOk` | 🆗 `SQUARED OK` | `size`, `color`, `bgColor`, `borderColor`, `cornerRadius` |
 | `SvgTriangleButton` | 🔽 `DOWN-POINTING SMALL RED TRIANGLE` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgTriangleDoubleButton` | ⏬ `BLACK DOWN-POINTING DOUBLE TRIANGLE` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgWarningSign` | ⚠️ `WARNING SIGN` | `size` |

@@ -56,9 +56,9 @@ const dots: readonly [number, number][] = [
 
 const angle = computed(() => {
   switch (props.direction) {
-    case 'top-right': return 90;
+    case 'top-right': return 270;
     case 'top-left': return 180;
-    case 'bottom-left': return 270;
+    case 'bottom-left': return 90;
     default: return 0;
   }
 });

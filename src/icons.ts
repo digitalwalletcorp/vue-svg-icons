@@ -41,6 +41,8 @@ export { default as SvgQuestion } from '@/svg-question.vue';
 export { default as SvgReset } from '@/svg-reset.vue';
 export { default as SvgRoundPushpin } from '@/svg-round-pushpin.vue';
 export { default as SvgSquare } from '@/svg-square.vue';
+export { default as SvgSquaredNg } from '@/svg-squared-ng.vue';
+export { default as SvgSquaredOk } from '@/svg-squared-ok.vue';
 export { default as SvgTrashbox } from '@/svg-trashbox.vue';
 export { default as SvgTriangleButton } from '@/svg-triangle-button.vue';
 export { default as SvgTriangleDoubleButton } from '@/svg-triangle-double-button.vue';
