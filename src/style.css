@@ -6,3 +6,8 @@
 :where(svg.svg-inline--vue-svg-icons) {
   vertical-align: -0.125em;
 }
+
+/* 砂時計は縦長で下端に台座があり、他のアイコンと同じ量では浮いて見えるため少し深く下げる */
+:where(svg.svg-inline--vue-svg-icons.svg-hourglass) {
+  vertical-align: -0.2em;
+}

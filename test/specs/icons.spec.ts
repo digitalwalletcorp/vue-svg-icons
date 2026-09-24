@@ -41,3 +41,14 @@ describe('exported icons', () => {
     });
   });
 });
+
+describe('SvgHourglass', () => {
+  it('sizes by the height attribute and leaves alignment to style.css instead of an inline style', () => {
+    // インラインstyleは利用側のCSSで上書きできないため、揃えは同梱のstyle.css(svg-hourglassクラス)に任せる
+    const wrapper = mount(icons.SvgHourglass, { props: { size: 20 } });
+    expect(wrapper.attributes('height')).toBe('20px');
+    expect(wrapper.attributes('width')).toBeUndefined();
+    expect(wrapper.attributes('style')).toBeUndefined();
+    expect(wrapper.classes()).toEqual(expect.arrayContaining(['svg-inline--vue-svg-icons', 'svg-hourglass']));
+  });
+});
