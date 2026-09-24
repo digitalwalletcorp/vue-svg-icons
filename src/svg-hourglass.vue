@@ -6,11 +6,11 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
-    class="svg-inline--vue-svg-icons"
+    class="svg-inline--vue-svg-icons svg-hourglass"
     viewBox="250 40 180 260"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
-    :style="{ height: sizeStyle, display: 'inline-block', width: 'auto', verticalAlign: '-0.2em' }"
+    :height="sizeStyle"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <desc>Hourglass emoji style illustration with sand flowing in an endless loop</desc>
