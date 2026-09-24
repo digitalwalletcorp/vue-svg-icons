@@ -112,6 +112,29 @@ export default defineNuxtConfig({
 </template>
 ```
 
+##### 📐 Optional Stylesheet (Vertical Alignment)
+
+Since v1.9.0, every icon renders its root `<svg>` with the class `svg-inline--vue-svg-icons`. You can optionally import the bundled stylesheet to apply `vertical-align: -0.125em` to all icons, aligning them seamlessly with surrounding inline text.
+
+* **Vue:** Import in your entry file.
+
+```ts
+// main.ts
+import '@digitalwalletcorp/vue-svg-icons/style.css';
+```
+
+* **Nuxt:** Add to your config array.
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  css: ['@digitalwalletcorp/vue-svg-icons/style.css']
+});
+```
+
+> **Note on Layouts:**
+> The rule uses `:where()` (zero specificity), allowing easy overrides in your custom CSS. If the icon is inside a Flexbox container (e.g. `display: inline-flex; align-items: center`), the browser ignores `vertical-align`, so it won't conflict with your flex alignment.
+
 #### 🔧 Props
 
 All icons accept the `size` and `title` props. See the Props table below for icon-specific properties.

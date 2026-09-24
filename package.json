@@ -1,12 +1,14 @@
 {
   "name": "@digitalwalletcorp/vue-svg-icons",
-  "version": "1.8.0",
+  "version": "1.9.0",
   "type": "module",
   "description": "Original SVG icons for Unicode emoji characters, shipped as Vue 3 components",
   "main": "lib/index.cjs",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
-  "sideEffects": false,
+  "sideEffects": [
+    "**/*.css"
+  ],
   "exports": {
     ".": {
       "types": "./lib/index.d.ts",
@@ -25,6 +27,7 @@
     "./global": {
       "types": "./lib/global.d.ts"
     },
+    "./style.css": "./lib/style.css",
     "./*": {
       "types": "./lib/*.d.ts",
       "import": "./lib/*.js",

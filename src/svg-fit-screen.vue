@@ -5,6 +5,7 @@ UTF-8絵文字に対応する定番絵文字は存在しない
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    class="svg-inline--vue-svg-icons"
     viewBox="0 0 64 64"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
