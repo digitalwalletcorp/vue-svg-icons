@@ -6,6 +6,7 @@ svg-download-allを上下反転した形
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    class="svg-inline--vue-svg-icons"
     viewBox="0 0 64 64"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"

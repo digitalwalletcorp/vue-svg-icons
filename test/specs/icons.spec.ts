@@ -21,6 +21,11 @@ describe('exported icons', () => {
       expect(html).toContain('viewBox=');
     });
 
+    it('has the inline class so that style.css can align it with the surrounding text', () => {
+      const wrapper = mount(component, { attrs: { class: 'extra' } });
+      expect(wrapper.classes()).toEqual(expect.arrayContaining(['svg-inline--vue-svg-icons', 'extra']));
+    });
+
     it('is decorative when no title is given', () => {
       const html = mount(component).html();
       expect(html).toContain('aria-hidden="true"');

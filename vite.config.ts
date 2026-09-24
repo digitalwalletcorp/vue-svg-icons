@@ -19,13 +19,18 @@ for (const fileName of readdirSync(SRC).filter((name) => name.endsWith('.vue')).
   entries[fileName.replace(/\.vue$/, '')] = `src/${fileName}`;
 }
 
-/** グローバル型定義をlibにコピーする */
-const copyGlobalDts = {
-  name: 'copy-global-dts',
+/** グローバル型定義とスタイルシートをlibにコピーする */
+const copyStaticFiles = {
+  name: 'copy-static-files',
   writeBundle() {
     copyFileSync(
       'src/types/global.d.ts',
       'lib/global.d.ts'
+    );
+    // 利用側がnuxt.configのcssやimportで明示的に読み込む(読み込まなければ従来どおりの表示)
+    copyFileSync(
+      'src/style.css',
+      'lib/style.css'
     );
   }
 };
@@ -47,7 +52,7 @@ export default defineConfig({
         content: content.replace(/(from\s+['"][^'"]+)\.vue(['"])/g, '$1$2')
       })
     }),
-    copyGlobalDts
+    copyStaticFiles
   ],
   build: {
     outDir: 'lib',

@@ -6,6 +6,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 <template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
+    class="svg-inline--vue-svg-icons"
     viewBox="8 10 148 148"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
