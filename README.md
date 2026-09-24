@@ -2,9 +2,9 @@
 
 [![NPM Version](https://img.shields.io/npm/v/%40digitalwalletcorp%2Fvue-svg-icons)](https://www.npmjs.com/package/@digitalwalletcorp/vue-svg-icons) [![License](https://img.shields.io/npm/l/%40digitalwalletcorp%2Fvue-svg-icons)](https://opensource.org/licenses/MIT) [![Build Status](https://img.shields.io/github/actions/workflow/status/digitalwalletcorp/vue-svg-icons/ci.yml?branch=main)](https://github.com/digitalwalletcorp/vue-svg-icons/actions) [![Test Coverage](https://img.shields.io/codecov/c/github/digitalwalletcorp/vue-svg-icons.svg)](https://codecov.io/gh/digitalwalletcorp/vue-svg-icons)
 
-A set of original SVG icons shipped directly as Vue 3 components. Includes independent interpretations of Unicode emoji characters as well as common UI components.
+A set of original SVG icons shipped directly as Vue 3 components. Includes independent interpretations of Unicode emoji characters as well as common UI icons.
 
-Every icon is drawn from scratch using basic SVG primitives. No emoji font glyphs are referenced or traced, ensuring identical rendering across all environments with zero font licensing obligations.
+Built entirely from basic SVG primitives with no `<text>` elements, every icon renders consistently across operating systems and browsers. Each design is drawn from scratch without embedding fonts or tracing existing emoji glyphs, so there are no font licensing dependencies.
 
 ![Icon catalog](https://raw.githubusercontent.com/digitalwalletcorp/vue-svg-icons/main/docs/catalog.png)
 
@@ -136,7 +136,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `hour` / `minute` | `number` | Sets the starting time displayed on clock icons. |
 | `date` | `string` | Start date for calendar icons, in `yyyyMMdd` format. The year is never displayed, but it decides whether February has 29 days. Defaults to `20280229`, so the icon still reads `FEB 29` when the prop is omitted. A calendar animates only when `date` is a day that really exists and `duration` is given: a malformed value falls back to the default date, and a date that does not exist in that year (`20260229`, `20260431`) is still displayed as given, but neither one animates. |
 | `moonAge` | `number` | Moon age in days for `SvgMoonPhases`, driving the lit shape through the phases. `0` = new moon, ~`7.4` = first quarter, ~`14.8` = full moon, ~`22.1` = last quarter (synodic period 29.53 days). Any value is accepted and wraps within the cycle. Defaults to `3`. |
-| `angle` | `number` | Rotation of the whole moon in degrees, clockwise. Negative values and values beyond `360` are accepted. Around `30`–`40` gives a crescent its familiar tilt. Defaults to `0` (no rotation). |
+| `angle` | `number` | Clockwise rotation angle in degrees. Negative values and values beyond 360 are accepted and wrapped within a 360-degree range (e.g., passing 400 is equivalent to 40). Defaults to 0 (no rotation). |
 
 #### 📚 Icon Catalog
 
@@ -193,6 +193,7 @@ Standalone UI icons with no direct emoji counterparts.
 | `SvgDot` | `size`, `color` |
 | `SvgDownloadAll` | `size`, `color`, `strokeWidth`, `topLineWidth` |
 | `SvgDownload` | `size`, `color`, `strokeWidth` |
+| `SvgExternalLink` | `direction`, `size`, `color`, `strokeWidth` |
 | `SvgEye` | `size`, `color`, `strokeWidth`, `slashed` |
 | `SvgFitScreen` | `size`, `color` |
 | `SvgInfo` | `size` |
@@ -200,6 +201,8 @@ Standalone UI icons with no direct emoji counterparts.
 | `SvgQuestion` | `size` |
 | `SvgReset` | `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgTrashbox` | `size` |
+| `SvgUploadAll` | `size`, `color`, `strokeWidth`, `bottomLineWidth` |
+| `SvgUpload` | `size`, `color`, `strokeWidth` |
 
 #### 🎨 Artwork & Copyright
 
