@@ -3,6 +3,7 @@
  */
 export { default as SvgAnticlockwiseOpenCircleArrows } from '@/svg-anticlockwise-open-circle-arrows.vue';
 export { default as SvgArrowButton } from '@/svg-arrow-button.vue';
+export { default as SvgBlackArrow } from '@/svg-black-arrow.vue';
 export { default as SvgBooks } from '@/svg-books.vue';
 export { default as SvgCalendar } from '@/svg-calendar.vue';
 export { default as SvgChevronDouble } from '@/svg-chevron-double.vue';
