@@ -172,9 +172,11 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgArrowButton` | ➡️ `BLACK RIGHTWARDS ARROW` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgBarChart` | 📊 `BAR CHART` | `size`, `bgColor` |
 | `SvgBlackArrow` | ➡ `BLACK RIGHTWARDS ARROW` (text presentation, without the button plate) | `direction`, `size`, `color`, `strokeWidth`, `filled`. `strokeWidth` applies only when `filled` is `false`. The line thickens inward, so the outline never grows; large values end up looking filled. |
+| `SvgBookmark` | 🔖 `BOOKMARK` | `size` |
 | `SvgBooks` | 📚 `BOOKS` | `size` |
 | `SvgBustInSilhouette` | 👤 `BUST IN SILHOUETTE` | `size` |
 | `SvgCalendar` | 📅 `CALENDAR` | `date`, `duration`, `flipSeconds`, `size` |
+| `SvgCamera` | 📷 `CAMERA` | `size` |
 | `SvgCircle` | 🟠 `LARGE ORANGE CIRCLE` | `variant`, `size`, `color` |
 | `SvgClock` | 🕓 `CLOCK FACE FOUR OCLOCK` | `hour`, `minute`, `duration`, `size` |
 | `SvgClockwiseOpenCircleArrows` | 🔁 `CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS` | `orientation`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
@@ -188,12 +190,15 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgHeavyPlusSign` | ➕ `HEAVY PLUS SIGN` | `size`, `color` |
 | `SvgHighBrightness` | 🔆 `HIGH BRIGHTNESS SYMBOL` | `size` |
 | `SvgHourglass` | ⏳ `HOURGLASS WITH FLOWING SAND` | `duration`, `size` |
+| `SvgIncomingEnvelope` | 📨 `INCOMING ENVELOPE` | `size` |
 | `SvgJapanesePostOffice` | 🏣 `JAPANESE POST OFFICE` | `size` |
+| `SvgLoveLetter` | 💌 `LOVE LETTER` | `size` |
 | `SvgMagnifyingGlass` | 🔍 `LEFT-POINTING MAGNIFYING GLASS` | `direction`, `size` |
 | `SvgMemo` | 📝 `MEMO` | `size` |
 | `SvgMoneyBag` | 💰 `MONEY BAG` | `size` |
 | `SvgMoonPhases` | 🌑🌒🌓🌔🌕🌖🌗🌘 `MOON PHASES` | `moonAge`, `angle`, `size` |
 | `SvgNegativeSquaredCrossMark` | ❎ `NEGATIVE SQUARED CROSS MARK` | `size` |
+| `SvgNoEntry` | ⛔ `NO ENTRY` | `size` |
 | `SvgNoOneUnderEighteen` | 🔞 `NO ONE UNDER EIGHTEEN` | `size` |
 | `SvgOpenBook` | 📖 `OPEN BOOK` | `size` |
 | `SvgPaperclip` | 📎 `PAPERCLIP` | `size` |
@@ -217,6 +222,7 @@ Standalone UI icons with no direct emoji counterparts.
 
 | Component | Accepted Props |
 | --- | --- |
+| `SvgBlockedPerson` | `size` |
 | `SvgChevronDouble` | `direction`, `size`, `color`, `strokeWidth`, `filled` |
 | `SvgChevron` | `direction`, `size`, `color`, `strokeWidth`, `filled` |
 | `SvgClipboardCopy` | `size` |
