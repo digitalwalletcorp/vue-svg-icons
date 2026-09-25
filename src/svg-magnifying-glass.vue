@@ -10,7 +10,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     viewBox="0 0 64 64"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
-    :style="{ height: sizeStyle }"
+    :style="{ height: sizeStyle, ...iconSizeStyle(props.size) }"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
@@ -48,6 +48,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+import { iconSizeStyle, toCssSize } from '@/internal/icon-size';
 
 interface Props {
   direction?: 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
@@ -65,9 +66,7 @@ const uid = (useId() ?? 'hg').replace(/[^a-zA-Z0-9_-]/g, '') || 'hg';
 const lenzGlassId = `lens-glass-${uid}`;
 const handleWoodId = `handle-wood-${uid}`;
 
-const sizeStyle = computed((): string => {
-  return typeof props.size === 'number' ? `${props.size}px` : props.size;
-});
+const sizeStyle = computed((): string => toCssSize(props.size));
 
 const transform = computed((): string => {
   switch (props.direction) {

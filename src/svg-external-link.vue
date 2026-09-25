@@ -13,6 +13,7 @@ direction: 矢印が抜ける角を変更可能
     :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
+    :style="iconSizeStyle(props.size)"
     fill="none"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
@@ -29,6 +30,7 @@ direction: 矢印が抜ける角を変更可能
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { iconSizeStyle } from '@/internal/icon-size';
 
 /**
  * directionは矢印が抜ける角。基準の右上版を回転させて4隅を表現する

@@ -1,13 +1,14 @@
 /*
- * アイコンを周囲の文字の縦位置中央に揃える(FontAwesomeのsvg-inline--faと同じ考え方)
+ * アイコンを周囲の文字の縦位置中央に揃える
  * 親がflexの場合はvertical-alignが無視されるため、親側のalign-itemsと二重に効くことはない
  * :where()で詳細度を0にし、利用側のCSSでいつでも上書きできるようにする
+ * アイコンの中心をベースラインから0.375emに置くため、高さ(--vue-svg-icons-size)の半分を差し引く
  */
 :where(svg.svg-inline--vue-svg-icons) {
-  vertical-align: -0.125em;
+  vertical-align: calc(0.375em - var(--vue-svg-icons-size, 1.2em) / 2);
 }
 
 /* 砂時計は縦長で下端に台座があり、他のアイコンと同じ量では浮いて見えるため少し深く下げる */
 :where(svg.svg-inline--vue-svg-icons.svg-hourglass) {
-  vertical-align: -0.2em;
+  vertical-align: calc(0.3em - var(--vue-svg-icons-size, 1.2em) / 2);
 }

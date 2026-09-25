@@ -14,6 +14,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
+    :style="iconSizeStyle(props.size)"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
@@ -47,6 +48,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 <script setup lang="ts">
 import { computed, useId } from 'vue';
 import { resolveNamedColor } from '@/internal/named-color';
+import { iconSizeStyle } from '@/internal/icon-size';
 
 interface Props {
   /** large=🔷相当(キャンバスいっぱい)、medium=中間、small=🔸相当(余白大きめ) */

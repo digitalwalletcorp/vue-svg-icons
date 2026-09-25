@@ -9,7 +9,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     viewBox="19 21 122 122"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
-    :style="{ height: sizeStyle }"
+    :style="{ height: sizeStyle, ...iconSizeStyle(props.size) }"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
@@ -126,6 +126,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted, useId } from 'vue';
 import { nextDay, resolveYmd, type CalendarDate, type ResolvedDate } from '@/internal/calendar-date';
+import { iconSizeStyle, toCssSize } from '@/internal/icon-size';
 
 interface Props {
   /**
@@ -324,9 +325,7 @@ const pages = computed((): Page[] => {
   return [buildPage(nextDay(currentDate.value), 'next', undefined, 0), current];
 });
 
-const sizeStyle = computed((): string => {
-  return typeof props.size === 'number' ? `${props.size}px` : props.size;
-});
+const sizeStyle = computed((): string => toCssSize(props.size));
 
 let rafId = 0;
 let startTs = 0;
