@@ -148,6 +148,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `color` | `string` | Stroke or fill color. Line-art icons inherit the surrounding text color by default (`currentColor`). |
 | `strokeWidth` | `number` | Line thickness relative to the icon's 64-unit coordinate grid. |
 | `direction` | string literal | Orientation of the icon (e.g., `'up'`, `'down'`, `'left'`, `'right'`, etc.). |
+| `orientation` | `'horizontal' \| 'vertical'` | Lays the icon out horizontally or vertically. |
 | `variant` | `'large' \| 'medium' \| 'small'` | Adjusts the relative scale of the drawn shape itself, independent of `size`. |
 | `filled` | `boolean` | Renders the icon with a solid fill instead of an outline. |
 | `slashed` | `boolean` | Overlays a slash over the icon to indicate a "hidden" or "disabled" state. |
@@ -169,11 +170,16 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | --- | --- | --- |
 | `SvgAnticlockwiseOpenCircleArrows` | 🔄 `ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS` | `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgArrowButton` | ➡️ `BLACK RIGHTWARDS ARROW` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
+| `SvgBarChart` | 📊 `BAR CHART` | `size`, `bgColor` |
 | `SvgBlackArrow` | ➡ `BLACK RIGHTWARDS ARROW` (text presentation, without the button plate) | `direction`, `size`, `color`, `strokeWidth`, `filled`. `strokeWidth` applies only when `filled` is `false`. The line thickens inward, so the outline never grows; large values end up looking filled. |
 | `SvgBooks` | 📚 `BOOKS` | `size` |
+| `SvgBustInSilhouette` | 👤 `BUST IN SILHOUETTE` | `size` |
 | `SvgCalendar` | 📅 `CALENDAR` | `date`, `duration`, `flipSeconds`, `size` |
 | `SvgCircle` | 🟠 `LARGE ORANGE CIRCLE` | `variant`, `size`, `color` |
 | `SvgClock` | 🕓 `CLOCK FACE FOUR OCLOCK` | `hour`, `minute`, `duration`, `size` |
+| `SvgClockwiseOpenCircleArrows` | 🔁 `CLOCKWISE RIGHTWARDS AND LEFTWARDS OPEN CIRCLE ARROWS` | `orientation`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
+| `SvgClosedLockWithKey` | 🔐 `CLOSED LOCK WITH KEY` | `size` |
+| `SvgCreditCard` | 💳 `CREDIT CARD` (front side with an IC chip) | `size` |
 | `SvgCrossMark` | ❌ `CROSS MARK` | `size` |
 | `SvgDiamond` | 🔷 `LARGE BLUE DIAMOND` | `variant`, `size`, `color` |
 | `SvgEyes` | 👀 `EYES` | `size` |
@@ -182,6 +188,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgHeavyPlusSign` | ➕ `HEAVY PLUS SIGN` | `size`, `color` |
 | `SvgHighBrightness` | 🔆 `HIGH BRIGHTNESS SYMBOL` | `size` |
 | `SvgHourglass` | ⏳ `HOURGLASS WITH FLOWING SAND` | `duration`, `size` |
+| `SvgJapanesePostOffice` | 🏣 `JAPANESE POST OFFICE` | `size` |
 | `SvgMagnifyingGlass` | 🔍 `LEFT-POINTING MAGNIFYING GLASS` | `direction`, `size` |
 | `SvgMemo` | 📝 `MEMO` | `size` |
 | `SvgMoneyBag` | 💰 `MONEY BAG` | `size` |
@@ -189,6 +196,8 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgNegativeSquaredCrossMark` | ❎ `NEGATIVE SQUARED CROSS MARK` | `size` |
 | `SvgNoOneUnderEighteen` | 🔞 `NO ONE UNDER EIGHTEEN` | `size` |
 | `SvgOpenBook` | 📖 `OPEN BOOK` | `size` |
+| `SvgPaperclip` | 📎 `PAPERCLIP` | `size` |
+| `SvgPostbox` | 📮 `POSTBOX` | `size` |
 | `SvgPrinter` | 🖨 `PRINTER` | `size` |
 | `SvgPushpin` | 📌 `PUSHPIN` | `direction`, `size` |
 | `SvgRoundPushpin` | 📍 `ROUND PUSHPIN` | `size` |
