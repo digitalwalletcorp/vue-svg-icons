@@ -169,6 +169,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | --- | --- | --- |
 | `SvgAnticlockwiseOpenCircleArrows` | 🔄 `ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS` | `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgArrowButton` | ➡️ `BLACK RIGHTWARDS ARROW` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
+| `SvgBlackArrow` | ➡ `BLACK RIGHTWARDS ARROW` (text presentation, without the button plate) | `direction`, `size`, `color`, `strokeWidth`, `filled`. `strokeWidth` applies only when `filled` is `false`. The line thickens inward, so the outline never grows; large values end up looking filled. |
 | `SvgBooks` | 📚 `BOOKS` | `size` |
 | `SvgCalendar` | 📅 `CALENDAR` | `date`, `duration`, `flipSeconds`, `size` |
 | `SvgCircle` | 🟠 `LARGE ORANGE CIRCLE` | `variant`, `size`, `color` |
