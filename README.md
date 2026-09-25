@@ -154,7 +154,6 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `slashed` | `boolean` | Overlays a slash over the icon to indicate a "hidden" or "disabled" state. |
 | `bgColor` / `borderColor` / `arrowColor` | `string` | For button-style icons: sets the background plate color, border color, and foreground symbol color. |
 | `cornerRadius` | `number` | For button-style icons: controls the corner radius of the background plate. |
-| `topLineWidth` | `number` | Thickness of the top horizontal bar (e.g., on download icons). |
 | `duration` | `number` | Animation duration in seconds. Lower values run faster; `0` stops the animation completely. On `SvgCalendar` it is the time one day takes to pass. |
 | `flipSeconds` | `number` | Seconds spent flipping a single sheet on `SvgCalendar`. Raising `duration` lengthens the pause between flips without slowing the flip itself. Defaults to `0.45`. When `duration` is shorter than this, the flip takes the whole day instead. |
 | `hour` / `minute` | `number` | Sets the starting time displayed on clock icons. |
@@ -226,15 +225,17 @@ Standalone UI icons with no direct emoji counterparts.
 | `SvgChevronDouble` | `direction`, `size`, `color`, `strokeWidth`, `filled` |
 | `SvgChevron` | `direction`, `size`, `color`, `strokeWidth`, `filled` |
 | `SvgClipboardCopy` | `size` |
+| `SvgCloudDownload` | `size`, `color`, `arrowColor` |
 | `SvgCornerDiagonal` | `direction`, `size`, `color`, `strokeWidth` |
 | `SvgCornerDot` | `direction`, `size`, `color` |
 | `SvgCritical` | `size` |
 | `SvgDot` | `size`, `color` |
-| `SvgDownloadAll` | `size`, `color`, `strokeWidth`, `topLineWidth` |
+| `SvgDownloadAll` | `size`, `color`, `strokeWidth` |
 | `SvgDownload` | `size`, `color`, `strokeWidth` |
 | `SvgExternalLink` | `direction`, `size`, `color`, `strokeWidth` |
 | `SvgEye` | `size`, `color`, `strokeWidth`, `slashed` |
 | `SvgFitScreen` | `size`, `color` |
+| `SvgFolderDownload` | `size`, `color`, `arrowColor` |
 | `SvgInfo` | `size` |
 | `SvgPointingTriangle` | `direction`, `size`, `color` |
 | `SvgQuestion` | `size` |

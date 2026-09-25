@@ -24,7 +24,7 @@ UTF-8絵文字に類似のアイコンは存在しない
     <path
       d="M16 18V8h32v10"
       :stroke="props.color"
-      :stroke-width="props.topLineWidth"
+      :stroke-width="props.strokeWidth"
       stroke-linecap="round"
       stroke-linejoin="round"
     />
@@ -36,14 +36,12 @@ interface Props {
   size?: number | string;
   color?: string;
   strokeWidth?: number;
-  topLineWidth?: number;
   /** 読み上げ名。指定するとrole="img"と<title>を出力する。未指定なら装飾アイコンとして扱う */
   title?: string;
 }
 const props = withDefaults(defineProps<Props>(), {
   size: '1.2em',
   color: 'currentColor',
-  strokeWidth: 6,
-  topLineWidth: 4.8
+  strokeWidth: 6
 });
 </script>
