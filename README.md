@@ -114,7 +114,7 @@ export default defineNuxtConfig({
 
 ##### 📐 Optional Stylesheet (Vertical Alignment)
 
-Since v1.9.0, every icon renders its root `<svg>` with the class `svg-inline--vue-svg-icons`. You can optionally import the bundled stylesheet to apply `vertical-align: -0.125em` to all icons, aligning them seamlessly with surrounding inline text.
+Since v1.9.0, every icon renders its root `<svg>` with the class `svg-inline--vue-svg-icons`. You can optionally import the bundled stylesheet to apply `vertical-align` to all icons, centering them on the surrounding inline text. The offset is calculated from each icon's `size`, so icons stay centered even when you change `size`.
 
 * **Vue:** Import in your entry file.
 

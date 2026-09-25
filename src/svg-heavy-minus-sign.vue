@@ -10,6 +10,7 @@ UTF-8絵文字➖(HEAVY MINUS SIGN)をイメージしたアイコン
     :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
+    :style="iconSizeStyle(props.size)"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <path
@@ -23,6 +24,8 @@ UTF-8絵文字➖(HEAVY MINUS SIGN)をイメージしたアイコン
 </template>
 
 <script setup lang="ts">
+import { iconSizeStyle } from '@/internal/icon-size';
+
 interface Props {
   size?: number | string;
   color?: string;

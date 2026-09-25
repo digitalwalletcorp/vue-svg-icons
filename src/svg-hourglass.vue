@@ -11,6 +11,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
     :height="sizeStyle"
+    :style="iconSizeStyle(props.size)"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <desc>Hourglass emoji style illustration with sand flowing in an endless loop</desc>
@@ -72,6 +73,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+import { iconSizeStyle, toCssSize } from '@/internal/icon-size';
 
 interface Props {
   /** 砂が落ち切るまでの秒数(SMILのdurにバインド。同期する3アニメに適用)。0以下で静止 */
@@ -97,7 +99,5 @@ const durValue = computed((): string => props.duration > 0 ? `${props.duration}s
 
 /** 砂の流れ(点線と粒)はdurationに連動しない固定速度。静止時だけ止める */
 const streamDur = (seconds: number): string => props.duration > 0 ? `${seconds}s` : 'indefinite';
-const sizeStyle = computed((): string => {
-  return typeof props.size === 'number' ? `${props.size}px` : props.size;
-});
+const sizeStyle = computed((): string => toCssSize(props.size));
 </script>

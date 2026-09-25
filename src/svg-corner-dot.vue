@@ -13,6 +13,7 @@ direction: ドットの配置位置を変更可能
     :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
+    :style="iconSizeStyle(props.size)"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <g :transform="`rotate(${angle} 32 32)`">
@@ -30,6 +31,7 @@ direction: ドットの配置位置を変更可能
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { iconSizeStyle } from '@/internal/icon-size';
 
 /**
  * コーナー系: 隅に寄せたリサイズグリップ(3-2-1のドット三角)。

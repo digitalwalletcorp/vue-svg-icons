@@ -12,6 +12,7 @@ UTF-8絵文字👀をイメージしたsvg-eyesとは別物
     :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
+    :style="iconSizeStyle(props.size)"
     fill="none"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
@@ -39,6 +40,8 @@ UTF-8絵文字👀をイメージしたsvg-eyesとは別物
 </template>
 
 <script setup lang="ts">
+import { iconSizeStyle } from '@/internal/icon-size';
+
 interface Props {
   size?: number | string;
   color?: string;

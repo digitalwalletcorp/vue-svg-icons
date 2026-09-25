@@ -21,6 +21,11 @@ describe('exported icons', () => {
       expect(html).toContain('viewBox=');
     });
 
+    it('passes its size to style.css as a CSS variable so that the alignment follows the size', () => {
+      expect(mount(component).attributes('style')).toContain('--vue-svg-icons-size: 1.2em;');
+      expect(mount(component, { props: { size: 20 } }).attributes('style')).toContain('--vue-svg-icons-size: 20px;');
+    });
+
     it('has the inline class so that style.css can align it with the surrounding text', () => {
       const wrapper = mount(component, { attrs: { class: 'extra' } });
       expect(wrapper.classes()).toEqual(expect.arrayContaining(['svg-inline--vue-svg-icons', 'extra']));
@@ -43,12 +48,12 @@ describe('exported icons', () => {
 });
 
 describe('SvgHourglass', () => {
-  it('sizes by the height attribute and leaves alignment to style.css instead of an inline style', () => {
-    // インラインstyleは利用側のCSSで上書きできないため、揃えは同梱のstyle.css(svg-hourglassクラス)に任せる
+  it('sizes by the height attribute and leaves alignment to style.css, passing only the size variable inline', () => {
+    // vertical-alignをインラインstyleにすると利用側のCSSで上書きできないため、インラインには高さの変数だけを渡す
     const wrapper = mount(icons.SvgHourglass, { props: { size: 20 } });
     expect(wrapper.attributes('height')).toBe('20px');
     expect(wrapper.attributes('width')).toBeUndefined();
-    expect(wrapper.attributes('style')).toBeUndefined();
+    expect(wrapper.attributes('style')).toBe('--vue-svg-icons-size: 20px;');
     expect(wrapper.classes()).toEqual(expect.arrayContaining(['svg-inline--vue-svg-icons', 'svg-hourglass']));
   });
 });

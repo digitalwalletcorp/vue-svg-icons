@@ -12,6 +12,7 @@ sizeを大きくすれば⚫︎にもなる
     :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
+    :style="iconSizeStyle(props.size)"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <circle
@@ -24,6 +25,8 @@ sizeを大きくすれば⚫︎にもなる
 </template>
 
 <script setup lang="ts">
+import { iconSizeStyle } from '@/internal/icon-size';
+
 interface Props {
   size?: number | string;
   color?: string;

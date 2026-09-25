@@ -12,6 +12,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
+    :style="iconSizeStyle(props.size)"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <!-- 中抜き時は2倍幅の線を矢印の形で切り抜き、外形を変えずに内側へだけ太らせる -->
@@ -35,6 +36,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+import { iconSizeStyle } from '@/internal/icon-size';
 
 interface Props {
   direction?: 'up' | 'down' | 'left' | 'right' | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';

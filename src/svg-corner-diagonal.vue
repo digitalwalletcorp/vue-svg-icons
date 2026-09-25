@@ -13,6 +13,7 @@ direction: 斜線の配置位置を変更可能
     :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
+    :style="iconSizeStyle(props.size)"
     fill="none"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
@@ -34,6 +35,7 @@ direction: 斜線の配置位置を変更可能
 
 <script setup lang="ts">
 import { computed } from 'vue';
+import { iconSizeStyle } from '@/internal/icon-size';
 
 /**
  * コーナー系: 隅に寄せたリサイズグリップ(斜線3本)。

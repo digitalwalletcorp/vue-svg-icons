@@ -10,7 +10,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     viewBox="17 26 126 126"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
-    :style="{ height: sizeStyle }"
+    :style="{ height: sizeStyle, ...iconSizeStyle(props.size) }"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
@@ -79,6 +79,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 
 <script setup lang="ts">
 import { computed, useId } from 'vue';
+import { iconSizeStyle, toCssSize } from '@/internal/icon-size';
 
 interface Props {
   /** 表示サイズ(高さ)。数値はpxとして扱う */
@@ -95,7 +96,5 @@ const bodyGradId = `printer-body-${uid}`;
 const paperGradId = `printer-paper-${uid}`;
 const slotGradId = `printer-slot-${uid}`;
 
-const sizeStyle = computed((): string => {
-  return typeof props.size === 'number' ? `${props.size}px` : props.size;
-});
+const sizeStyle = computed((): string => toCssSize(props.size));
 </script>

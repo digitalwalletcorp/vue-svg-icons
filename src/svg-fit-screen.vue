@@ -11,6 +11,7 @@ UTF-8絵文字に対応する定番絵文字は存在しない
     :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
     :height="props.size"
+    :style="iconSizeStyle(props.size)"
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <path
@@ -25,6 +26,8 @@ UTF-8絵文字に対応する定番絵文字は存在しない
 </template>
 
 <script setup lang="ts">
+import { iconSizeStyle } from '@/internal/icon-size';
+
 interface Props {
   size?: number | string;
   color?: string;
