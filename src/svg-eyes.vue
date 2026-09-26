@@ -7,7 +7,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="svg-inline--vue-svg-icons"
-    viewBox="8 10 148 148"
+    viewBox="8 8 148 148"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
     :style="{ height: sizeStyle, ...iconSizeStyle(props.size) }"
@@ -28,7 +28,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     </defs>
 
     <!-- 接地影 -->
-    <ellipse cx="82" cy="148" rx="56" ry="6" fill="#000000" opacity="0.12" />
+    <ellipse cx="82" cy="128" rx="56" ry="5" fill="#000000" opacity="0.12" />
 
     <g v-for="e in eyes" :key="e.key">
       <!-- 白目 -->

@@ -37,39 +37,13 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
         <feGaussianBlur stdDeviation="0.4" />
       </filter>
       <clipPath :id="clipId"><circle cx="32" cy="32" r="28" /></clipPath>
-      <!-- 光領域のクリップ(光部の海・クレーター用) -->
+      <!-- 光領域のクリップ(光部の海用) -->
       <clipPath :id="litClipId"><path :d="litPath" /></clipPath>
       <!-- 海: 楕円の輪郭をノイズで崩して不定形にし、縁をぼかす -->
       <filter :id="mariaId" x="-20%" y="-20%" width="140%" height="140%">
         <feTurbulence type="fractalNoise" baseFrequency="0.12" numOctaves="3" seed="11" result="noise" />
         <feDisplacementMap in="SourceGraphic" in2="noise" scale="7" />
         <feGaussianBlur stdDeviation="0.7" />
-      </filter>
-      <!-- クレーターのすり鉢: 中心を暗く、縁へ向けて浅くする -->
-      <radialGradient :id="bowlDarkId" cx="0.42" cy="0.4" r="0.65">
-        <stop offset="0" stop-color="#0b0e16" />
-        <stop offset="0.75" stop-color="#151a24" />
-        <stop offset="1" stop-color="#242a38" />
-      </radialGradient>
-      <radialGradient :id="bowlLitId" cx="0.42" cy="0.4" r="0.65">
-        <stop offset="0" stop-color="#8a6614" />
-        <stop offset="0.75" stop-color="#b08418" />
-        <stop offset="1" stop-color="#d9ab26" />
-      </radialGradient>
-      <!-- クレーター: すり鉢+明るいリムの単位円。useのtranslate/scaleで各座標へ置く -->
-      <g :id="craterDarkId">
-        <circle r="1" :fill="`url(#${bowlDarkId})`" />
-        <circle r="1" fill="none" stroke="#3f475c" stroke-width="0.2" />
-        <circle r="0.92" fill="none" stroke="#7b86a2" stroke-width="0.1" opacity="0.35" />
-      </g>
-      <g :id="craterLitId">
-        <circle r="1" :fill="`url(#${bowlLitId})`" />
-        <circle r="1" fill="none" stroke="#bb8f1e" stroke-width="0.2" />
-        <circle r="0.92" fill="none" stroke="#ffe9a8" stroke-width="0.1" opacity="0.45" />
-      </g>
-      <!-- クレーターの輪郭をぼかして月面へなじませる -->
-      <filter :id="craterBlurId" x="-10%" y="-10%" width="120%" height="120%">
-        <feGaussianBlur stdDeviation="0.28" />
       </filter>
       <filter :id="grainWId" x="-10%" y="-10%" width="120%" height="120%">
         <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="7" stitchTiles="stitch" />
@@ -105,15 +79,6 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
         <!-- 海(光部): 光に照らされている分だけ薄い斑にする -->
         <g fill="#0a0d16" opacity="0.17" :filter="`url(#${mariaId})`" :clip-path="`url(#${litClipId})`">
           <ellipse v-for="(m, i) in MARIA" :key="i" :cx="m.x" :cy="m.y" :rx="m.rx" :ry="m.ry" :transform="m.rot === 0 ? undefined : `rotate(${m.rot} ${m.x} ${m.y})`" />
-        </g>
-
-        <!-- クレーター(暗部用) -->
-        <g :filter="`url(#${craterBlurId})`">
-          <use v-for="(c, i) in CRATERS" :key="i" :href="`#${craterDarkId}`" :transform="`translate(${c.x} ${c.y}) scale(${c.r})`" />
-        </g>
-        <!-- クレーター(光部用: 光領域にクリップ) -->
-        <g :filter="`url(#${craterBlurId})`" :clip-path="`url(#${litClipId})`">
-          <use v-for="(c, i) in CRATERS" :key="i" :href="`#${craterLitId}`" :transform="`translate(${c.x} ${c.y}) scale(${c.r})`" />
         </g>
       </g>
 
@@ -152,25 +117,11 @@ const litClipId = `moon-lit-clip-${uid}`;
 const grainWId = `moon-grain-w-${uid}`;
 const grainBId = `moon-grain-b-${uid}`;
 const mariaId = `moon-maria-${uid}`;
-const bowlDarkId = `moon-bowl-dark-${uid}`;
-const bowlLitId = `moon-bowl-lit-${uid}`;
-const craterDarkId = `moon-crater-dark-${uid}`;
-const craterLitId = `moon-crater-lit-${uid}`;
-const craterBlurId = `moon-crater-blur-${uid}`;
 
 /** 朔望周期(日) */
 const PERIOD = 29.53;
 /** 月の半径 */
 const R = 28;
-
-/** クレーター(暗色/金色で共用する座標) */
-const CRATERS = [
-  { x: 21, y: 19, r: 2.8 }, { x: 13, y: 35, r: 2 }, { x: 26, y: 47, r: 2.5 },
-  { x: 35, y: 30, r: 1.7 }, { x: 24, y: 32, r: 1.1 }, { x: 31, y: 12, r: 1.4 },
-  { x: 14, y: 25, r: 1 }, { x: 36, y: 52, r: 1.3 }, { x: 40, y: 41, r: 1 },
-  { x: 18, y: 43, r: 0.9 }, { x: 47, y: 22, r: 1.6 }, { x: 52, y: 38, r: 2 },
-  { x: 45, y: 48, r: 1.2 }, { x: 50, y: 12, r: 1 }
-] as const;
 
 /** 海(暗い斑)。実際の月の海のおおまかな配置を模した楕円群。暗部/光部で共用する */
 const MARIA = [

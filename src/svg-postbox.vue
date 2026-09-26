@@ -36,6 +36,9 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
       </linearGradient>
     </defs>
 
+    <!-- 接地影 -->
+    <ellipse cx="80" cy="152" rx="36" ry="8" fill="#000000" opacity="0.12" />
+
     <!-- 本体の影 -->
     <rect x="37" y="11" width="92" height="104" rx="12" fill="#000000" opacity="0.12" />
     <!-- 支柱と台座 -->

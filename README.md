@@ -36,11 +36,11 @@ yarn add @digitalwalletcorp/vue-svg-icons
 
 There are three ways to use the icons. Choose the one that best fits your project.
 
-|                                                                         | When to use                                                      | Bundled icons                 |
-| ----------------------------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------- |
+|    | When to use | Bundled icons |
+| -- | ----------- | ------------- |
 | [Import individually](#1-import-icons-individually)                     | When you want to minimize bundle size or prefer explicit imports | Only the icons you import     |
-| [Register all icons globally (Vue)](#2-register-all-icons-globally-vue) | When you want to use icons without importing them in each file   | All icons                     |
-| [Register icons globally (Nuxt)](#3-register-icons-globally-nuxt)       | When you want to use icons globally in a Nuxt project            | Only the icons you use        |
+| [Register all icons globally (Vue)](#2-register-all-icons-globally-vue) | When you want to use icons without importing them in each file | All icons |
+| [Register icons globally (Nuxt)](#3-register-icons-globally-nuxt)       | When you want to use icons globally in a Nuxt project | Only the icons you use |
 
 > **Note:** In Nuxt, icons are registered globally, but only the icons actually used in your templates are included in the bundle.
 
@@ -112,9 +112,10 @@ export default defineNuxtConfig({
 </template>
 ```
 
-##### 📐 Optional Stylesheet (Vertical Alignment)
+##### 📐 Stylesheet (Vertical Alignment)
 
-Since v1.9.0, every icon renders its root `<svg>` with the class `svg-inline--vue-svg-icons`. You can optionally import the bundled stylesheet to apply `vertical-align` to all icons, centering them on the surrounding inline text. The offset is calculated from each icon's `size`, so icons stay centered even when you change `size`.
+Since v1.9.0, every icon renders its root `<svg>` with the `svg-inline--vue-svg-icons` class.
+Importing the bundled stylesheet is recommended. Without it, icons default to sitting on the text baseline, causing them to appear awkwardly high relative to surrounding text.
 
 * **Vue:** Import in your entry file.
 
@@ -132,8 +133,34 @@ export default defineNuxtConfig({
 });
 ```
 
-> **Note on Layouts:**
-> The rule uses `:where()` (zero specificity), allowing easy overrides in your custom CSS. If the icon is inside a Flexbox container (e.g. `display: inline-flex; align-items: center`), the browser ignores `vertical-align`, so it won't conflict with your flex alignment.
+* Consistent Positioning: The stylesheet dynamically applies vertical-align based on the icon's size, ensuring alignment stays consistent whenever you change sizes.
+* CJK Text Alignment: Offsets are calculated using Latin font metrics. When paired with CJK (Chinese, Japanese, Korean) characters, icons may appear slightly low.
+* Easy Overrides: Rules use zero specificity (:where()), making it effortless to override them with your custom CSS whenever needed.
+
+##### 💡 Recommended: Align via Flex Container
+
+For UI components like buttons and badges where icons and text must line up precisely, setting the parent as an `inline-flex` container is the most reliable approach:
+
+```css
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+}
+```
+
+**Key Takeaways:**
+
+* Flexbox overrides baseline styles: `vertical-align` is ignored inside a flex context, so this won't conflict with the library's stylesheet.
+* Requires `gap`: Flex containers ignore HTML white-space rules, so use `gap` to define spacing between the icon and text.
+* Stylesheet optional: If every icon in your application is rendered inside a flex container, importing the bundled CSS is not required.
+
+**When NOT to use Flexbox:**
+
+* When text wraps onto multiple lines and the icon must stay aligned with the first line.
+* When inserting an icon directly inside a standard paragraph of inline text.
+
+In these scenarios, rely on `vertical-align` and standard inline rendering instead.
 
 #### 🔧 Props
 
@@ -142,7 +169,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 *Note: Default values vary per icon. Your editor will auto-complete accepted values through the included type definitions.*
 
 | Prop | Type | Description |
-| --- | --- | --- |
+| ---- | ---- | ----------- |
 | `size` | `number \| string` | Icon size. Numbers are treated as pixels; strings accept any valid CSS length unit. Defaults to `1.2em` to match surrounding font size. |
 | `title` | `string` | Accessible name. When given, the icon renders `role="img"` and an SVG `<title>`, which browsers also show as a native tooltip. When omitted, the icon is treated as decorative and rendered with `aria-hidden="true"`. |
 | `color` | `string` | Stroke or fill color. Line-art icons inherit the surrounding text color by default (`currentColor`). |
@@ -166,7 +193,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 ##### Unicode Emoji Icons
 
 | Component | Unicode Character | Accepted Props |
-| --- | --- | --- |
+| --------- | ----------------- | -------------- |
 | `SvgAnticlockwiseOpenCircleArrows` | 🔄 `ANTICLOCKWISE DOWNWARDS AND UPWARDS OPEN CIRCLE ARROWS` | `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgArrowButton` | ➡️ `BLACK RIGHTWARDS ARROW` | `direction`, `size`, `bgColor`, `borderColor`, `arrowColor`, `cornerRadius` |
 | `SvgBarChart` | 📊 `BAR CHART` | `size`, `bgColor` |
@@ -220,7 +247,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 Standalone UI icons with no direct emoji counterparts.
 
 | Component | Accepted Props |
-| --- | --- |
+| --------- | -------------- |
 | `SvgBlockedPerson` | `size` |
 | `SvgChevronDouble` | `direction`, `size`, `color`, `strokeWidth`, `filled` |
 | `SvgChevron` | `direction`, `size`, `color`, `strokeWidth`, `filled` |

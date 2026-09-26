@@ -6,7 +6,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="svg-inline--vue-svg-icons"
-    viewBox="0 0 160 160"
+    viewBox="0 11.5 160 160"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
     :width="props.size"
@@ -29,6 +29,9 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
         <stop offset="1" stop-color="#6fb2dc" />
       </linearGradient>
     </defs>
+
+    <!-- 接地影 -->
+    <ellipse cx="80" cy="147" rx="62" ry="8" fill="#000000" opacity="0.12" />
 
     <!-- 建物の影 -->
     <rect x="25" y="60" width="116" height="92" rx="4" fill="#000000" opacity="0.12" />

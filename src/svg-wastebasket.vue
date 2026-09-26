@@ -6,7 +6,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="svg-inline--vue-svg-icons"
-    viewBox="29 40 102 102"
+    viewBox="29 36.5 102 102"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
     :style="{ height: sizeStyle, ...iconSizeStyle(props.size) }"
@@ -31,7 +31,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     </defs>
 
     <!-- 接地影 -->
-    <ellipse cx="80" cy="134" rx="44" ry="6" fill="#000000" opacity="0.13" />
+    <ellipse cx="80" cy="132" rx="44" ry="4" fill="#000000" opacity="0.13" />
 
     <!-- 奥側のメッシュ(透けて見える背面) -->
     <g :clip-path="`url(#${wbClipId})`" stroke="#6f757e" stroke-width="1.4" opacity="0.22" transform="translate(6 0)">
