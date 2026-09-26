@@ -6,7 +6,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
   <svg
     xmlns="http://www.w3.org/2000/svg"
     class="svg-inline--vue-svg-icons"
-    viewBox="21.5 22.5 120 120"
+    viewBox="21.5 18 120 120"
     :role="props.title == null ? undefined : 'img'"
     :aria-hidden="props.title == null ? 'true' : undefined"
     :style="{ height: sizeStyle, ...iconSizeStyle(props.size) }"
@@ -26,7 +26,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     </defs>
 
     <!-- 接地影 -->
-    <ellipse cx="83" cy="128" rx="52" ry="6" fill="#000000" opacity="0.13" />
+    <ellipse cx="83" cy="125" rx="52" ry="4" fill="#000000" opacity="0.13" />
 
     <!-- 下の本から順に描画(上の本が天面を覆う) -->
     <g v-for="b in books" :key="b.name">

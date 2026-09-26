@@ -46,6 +46,9 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
       </linearGradient>
     </defs>
 
+    <!-- 接地影 -->
+    <ellipse cx="78" cy="144" rx="60" ry="4" fill="#000000" opacity="0.13" />
+
     <!-- ツル(胴の裏から出るU字)。胴の中心x=62に揃える -->
     <path d="M32 74 V52 a30 30 0 0 1 60 0 V74" fill="none" stroke="#6f767f" stroke-width="15" />
     <path d="M32 74 V52 a30 30 0 0 1 60 0 V74" fill="none" :stroke="`url(#${shackleId})`" stroke-width="11" />
@@ -69,11 +72,11 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     <!-- 鍵の影 -->
     <g transform="translate(3 3)" opacity="0.18">
       <path :d="KEY_HEAD" fill-rule="evenodd" fill="#000000" />
-      <path d="M113 62 H131 V146 H113 Z" fill="#000000" />
+      <path d="M113 67 H131 V133 H113 Z" fill="#000000" />
     </g>
     <!-- 鍵: 軸と歯 -->
     <path
-      d="M113 62 H131 V144 Q122 152 113 144 V136 H102 V127 H113 V119 H105 V110 H113 Z"
+      d="M113 67 H131 V131 Q122 139 113 131 V123 H102 V114 H113 V106 H105 V97 H113 Z"
       :fill="`url(#${keyId})`"
       stroke="#b07a10"
       stroke-width="1.5"
@@ -82,12 +85,12 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     <!-- 鍵: 頭(穴はevenoddで抜く) -->
     <path :d="KEY_HEAD" fill-rule="evenodd" :fill="`url(#${keyId})`" stroke="#b07a10" stroke-width="1.5" />
     <!-- 鍵の光沢: 頭の反射と軸の左縁のハイライト -->
-    <path d="M104 36 a20 20 0 0 1 26 -12" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.75" />
-    <path d="M133 58 a18 18 0 0 0 9 -10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.45" />
-    <line x1="115.5" y1="72" x2="115.5" y2="104" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.6" />
+    <path d="M104 41 a20 20 0 0 1 26 -12" fill="none" stroke="#ffffff" stroke-width="4" stroke-linecap="round" opacity="0.75" />
+    <path d="M133 63 a18 18 0 0 0 9 -10" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.45" />
+    <line x1="115.5" y1="77" x2="115.5" y2="95" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.6" />
     <!-- 軸の溝(濃い線と明るい線の組) -->
-    <line x1="123" y1="72" x2="123" y2="140" stroke="#b07a10" stroke-width="2" stroke-linecap="round" />
-    <line x1="125" y1="72" x2="125" y2="140" stroke="#fff0b8" stroke-width="1.2" stroke-linecap="round" opacity="0.8" />
+    <line x1="123" y1="77" x2="123" y2="127" stroke="#b07a10" stroke-width="2" stroke-linecap="round" />
+    <line x1="125" y1="77" x2="125" y2="127" stroke="#fff0b8" stroke-width="1.2" stroke-linecap="round" opacity="0.8" />
   </svg>
 </template>
 
@@ -114,5 +117,5 @@ const keyId = `closed-lock-with-key-key-${uid}`;
 /** 胴の輪郭(上下左右の辺をわずかに膨らませた樽型) */
 const BODY = 'M22 72 Q62 66 102 72 Q112 74 112 86 Q114 106 112 126 Q112 139 100 141 Q62 148 24 141 Q12 139 12 126 Q10 106 12 86 Q12 74 22 72 Z';
 /** 鍵の頭(外周の円と穴の円) */
-const KEY_HEAD = 'M122 20 a24 24 0 1 1 0 48 a24 24 0 1 1 0 -48 Z M122 35 a9 9 0 1 0 0 18 a9 9 0 1 0 0 -18 Z';
+const KEY_HEAD = 'M122 25 a24 24 0 1 1 0 48 a24 24 0 1 1 0 -48 Z M122 40 a9 9 0 1 0 0 18 a9 9 0 1 0 0 -18 Z';
 </script>
