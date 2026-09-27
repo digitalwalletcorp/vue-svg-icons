@@ -112,7 +112,7 @@ export default defineNuxtConfig({
 </template>
 ```
 
-##### 📐 Stylesheet (Vertical Alignment)
+##### 📐 Stylesheet
 
 Since v1.9.0, every icon renders its root `<svg>` with the `svg-inline--vue-svg-icons` class.
 Importing the bundled stylesheet is recommended. Without it, icons default to sitting on the text baseline, causing them to appear awkwardly high relative to surrounding text.
@@ -201,6 +201,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgBookmark` | 🔖 `BOOKMARK` | `size` |
 | `SvgBooks` | 📚 `BOOKS` | `size` |
 | `SvgBustInSilhouette` | 👤 `BUST IN SILHOUETTE` | `size` |
+| `SvgBustsInSilhouette` | 👥 `BUSTS IN SILHOUETTE` | `size` |
 | `SvgCalendar` | 📅 `CALENDAR` | `date`, `duration`, `flipSeconds`, `size` |
 | `SvgCamera` | 📷 `CAMERA` | `size` |
 | `SvgCircle` | 🟠 `LARGE ORANGE CIRCLE` | `variant`, `size`, `color` |
@@ -220,6 +221,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgJapanesePostOffice` | 🏣 `JAPANESE POST OFFICE` | `size` |
 | `SvgLoveLetter` | 💌 `LOVE LETTER` | `size` |
 | `SvgMagnifyingGlass` | 🔍 `LEFT-POINTING MAGNIFYING GLASS` | `direction`, `size` |
+| `SvgMantelpieceClock` | 🕰 `MANTELPIECE CLOCK` | `hour`, `minute`, `duration`, `size` |
 | `SvgMemo` | 📝 `MEMO` | `size` |
 | `SvgMoneyBag` | 💰 `MONEY BAG` | `size` |
 | `SvgMoonPhases` | 🌑🌒🌓🌔🌕🌖🌗🌘 `MOON PHASES` | `moonAge`, `angle`, `size` |
@@ -231,6 +233,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgPostbox` | 📮 `POSTBOX` | `size` |
 | `SvgPrinter` | 🖨 `PRINTER` | `size` |
 | `SvgPushpin` | 📌 `PUSHPIN` | `direction`, `size` |
+| `SvgReceipt` | 🧾 `RECEIPT` | `size` |
 | `SvgRoundPushpin` | 📍 `ROUND PUSHPIN` | `size` |
 | `SvgSquare` | 🟥 `LARGE RED SQUARE` | `variant`, `size`, `color` |
 | `SvgSquaredNg` | 🆖 `SQUARED NG` | `size`, `color`, `bgColor`, `borderColor`, `cornerRadius` |
