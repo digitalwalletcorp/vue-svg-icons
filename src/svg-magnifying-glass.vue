@@ -14,12 +14,12 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
-      <!-- レンズ: 水色のガラス(svg-cameraのレンズと同じ配色) -->
+      <!-- レンズ: ほんのり青みがかった透明なガラス -->
       <radialGradient :id="lenzGlassId" cx="0.4" cy="0.35" r="0.7">
-        <stop offset="0" stop-color="#d8f3fc" />
-        <stop offset="0.35" stop-color="#6cc3e3" />
-        <stop offset="0.75" stop-color="#2a7fa6" />
-        <stop offset="1" stop-color="#17506b" />
+        <stop offset="0" stop-color="#fbfdfe" />
+        <stop offset="0.35" stop-color="#e2eef2" />
+        <stop offset="0.75" stop-color="#b4c9d1" />
+        <stop offset="1" stop-color="#8aa3ad" />
       </radialGradient>
       <!-- 枠: 銀の金属。左上が明るく右下が沈む -->
       <linearGradient :id="lenzFrameId" gradientUnits="userSpaceOnUse" x1="12" y1="12" x2="42" y2="42">
