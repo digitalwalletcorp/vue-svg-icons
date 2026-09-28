@@ -211,6 +211,7 @@ All icons accept the `size` and `title` props. See the Props table below for ico
 | `SvgCreditCard` | 💳 `CREDIT CARD` (front side with an IC chip) | `size` |
 | `SvgCrossMark` | ❌ `CROSS MARK` | `size` |
 | `SvgDiamond` | 🔷 `LARGE BLUE DIAMOND` | `variant`, `size`, `color` |
+| `SvgEMail` | 📧 `E-MAIL SYMBOL` | `size` |
 | `SvgEyes` | 👀 `EYES` | `size` |
 | `SvgGear` | ⚙️ `GEAR` | `size` |
 | `SvgHeavyMinusSign` | ➖ `HEAVY MINUS SIGN` | `size`, `color` |

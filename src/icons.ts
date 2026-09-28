@@ -29,6 +29,7 @@ export { default as SvgDiamond } from '@/svg-diamond.vue';
 export { default as SvgDot } from '@/svg-dot.vue';
 export { default as SvgDownloadAll } from '@/svg-download-all.vue';
 export { default as SvgDownload } from '@/svg-download.vue';
+export { default as SvgEMail } from '@/svg-e-mail.vue';
 export { default as SvgExternalLink } from '@/svg-external-link.vue';
 export { default as SvgEye } from '@/svg-eye.vue';
 export { default as SvgEyes } from '@/svg-eyes.vue';
