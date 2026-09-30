@@ -26,14 +26,14 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     </defs>
 
     <!-- 封筒の影と本体 -->
-    <rect x="15" y="40" width="136" height="92" rx="8" fill="#000000" opacity="0.13" />
-    <rect x="12" y="36" width="136" height="92" rx="8" :fill="`url(#${paperId})`" stroke="#c9cdd4" stroke-width="1.5" />
+    <rect x="15" y="36.5" width="136" height="92" rx="8" fill="#000000" opacity="0.13" />
+    <rect x="12" y="32.5" width="136" height="92" rx="8" :fill="`url(#${paperId})`" stroke="#c9cdd4" stroke-width="1.5" />
     <!-- 下側の折り返し線 -->
-    <path d="M14 126 L66 84 M146 126 L94 84" stroke="#c2c6cd" stroke-width="2" stroke-linecap="round" fill="none" />
+    <path d="M14 122.5 L66 80.5 M146 122.5 L94 80.5" stroke="#c2c6cd" stroke-width="2" stroke-linecap="round" fill="none" />
     <!-- ふた(上から三角に閉じる) -->
-    <path d="M14 40 L80 90 L146 40" :fill="`url(#${flapId})`" stroke="#c9cdd4" stroke-width="1.5" stroke-linejoin="round" />
+    <path d="M14 36.5 L80 86.5 L146 36.5" :fill="`url(#${flapId})`" stroke="#c9cdd4" stroke-width="1.5" stroke-linejoin="round" />
     <!-- 上部の光沢 -->
-    <rect x="20" y="40" width="120" height="5" rx="2.5" fill="#ffffff" opacity="0.7" />
+    <rect x="20" y="36.5" width="120" height="5" rx="2.5" fill="#ffffff" opacity="0.7" />
   </svg>
 </template>
 

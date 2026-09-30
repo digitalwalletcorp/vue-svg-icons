@@ -43,22 +43,22 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     </defs>
 
     <!-- 台座と脚 -->
-    <rect x="9" y="52" width="46" height="6" rx="1.5" :fill="`url(#${baseGradId})`" stroke="#3b2413" stroke-width="0.6" />
-    <rect x="12" y="57.5" width="6" height="3" rx="1" fill="#3b2413" />
-    <rect x="46" y="57.5" width="6" height="3" rx="1" fill="#3b2413" />
+    <rect x="9" y="49" width="46" height="6" rx="1.5" :fill="`url(#${baseGradId})`" stroke="#3b2413" stroke-width="0.6" />
+    <rect x="12" y="54.5" width="6" height="3" rx="1" fill="#3b2413" />
+    <rect x="46" y="54.5" width="6" height="3" rx="1" fill="#3b2413" />
     <!-- 本体(上部が半円のアーチ) -->
-    <path d="M13 52 L13 30 A19 19 0 0 1 51 30 L51 52 Z" :fill="`url(#${caseGradId})`" stroke="#3b2413" stroke-width="0.8" />
+    <path d="M13 49 L13 27 A19 19 0 0 1 51 27 L51 49 Z" :fill="`url(#${caseGradId})`" stroke="#3b2413" stroke-width="0.8" />
     <!-- 本体のハイライト(アーチ左上。木なので控えめ) -->
-    <path d="M16 30 A16 16 0 0 1 30 14.2" fill="none" stroke="#ffe2c0" stroke-width="1.2" stroke-linecap="round" opacity="0.35" />
+    <path d="M16 27 A16 16 0 0 1 30 11.2" fill="none" stroke="#ffe2c0" stroke-width="1.2" stroke-linecap="round" opacity="0.35" />
     <!-- 頂上の飾り玉 -->
-    <circle cx="32" cy="12" r="2.2" :fill="`url(#${bezelGradId})`" stroke="#6b4d12" stroke-width="0.5" />
+    <circle cx="32" cy="9" r="2.2" :fill="`url(#${bezelGradId})`" stroke="#6b4d12" stroke-width="0.5" />
 
     <!-- 文字盤の縁 -->
     <circle :cx="CX" :cy="CY" r="14.2" :fill="`url(#${bezelGradId})`" stroke="#6b4d12" stroke-width="0.6" />
     <!-- 文字盤 -->
     <circle :cx="CX" :cy="CY" r="12" :fill="`url(#${faceGradId})`" />
     <!-- 文字盤上縁の落ち影(縁の内側に沈む表現) -->
-    <path d="M 21.5 31 A 10.5 10.5 0 0 1 42.5 31" fill="none" stroke="#000000" stroke-width="1.2" opacity="0.08" />
+    <path d="M 21.5 28 A 10.5 10.5 0 0 1 42.5 28" fill="none" stroke="#000000" stroke-width="1.2" opacity="0.08" />
 
     <!-- 目盛り(12本: 3,6,9,12時は長く太く) -->
     <g stroke="#3a2a1c" stroke-linecap="round">
@@ -78,7 +78,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 
     <!-- 分針(12時位置で定義し、transformで回す) -->
     <line
-      :x1="CX" :y1="CY" :x2="CX" y2="23.6"
+      :x1="CX" :y1="CY" :x2="CX" y2="20.6"
       stroke="#2a1d12" stroke-width="1.8" stroke-linecap="round"
       :transform="`rotate(${minuteDeg} ${CX} ${CY})`"
     />
@@ -120,7 +120,7 @@ const faceGradId = `mantelpiece-clock-face-${uid}`;
 
 /** 文字盤の中心(本体のアーチの中に収まるよう、中央より少し下) */
 const CX = 32;
-const CY = 33;
+const CY = 30;
 
 /** 時計角度(12時=0, 時計回り)をSVG座標の点に変換する */
 const clockPt = (r: number, clockDeg: number): { x: number; y: number } => {

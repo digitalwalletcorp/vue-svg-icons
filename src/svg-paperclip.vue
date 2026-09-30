@@ -26,7 +26,7 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     </defs>
     <!-- 針金を縁・本体・影・ハイライトの4層で重ねて丸い線に見せる。右上がりに40°傾ける -->
     <g
-      transform="rotate(40 32 32) translate(32 32) scale(0.92) translate(-32 -32)"
+      transform="rotate(40 32 30.5) translate(32 30.5) scale(0.92) translate(-32 -32)"
       fill="none"
       stroke-linecap="round"
       stroke-linejoin="round"
