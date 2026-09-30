@@ -21,16 +21,13 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
         <polygon :points="points" />
       </clipPath>
     </defs>
-    <!-- 軸+矢じりの右向き矢印(中心32,32)。directionはrotateで表現 -->
-    <g :transform="`rotate(${angle} 32 32)`">
-      <polygon
-        :points="points"
-        :fill="props.filled ? props.color : 'none'"
-        :stroke="props.filled ? 'none' : props.color"
-        :stroke-width="props.filled ? undefined : props.strokeWidth * 2"
-        :clip-path="props.filled ? undefined : `url(#${clipId})`"
-      />
-    </g>
+    <polygon
+      :points="points"
+      :fill="props.filled ? props.color : 'none'"
+      :stroke="props.filled ? 'none' : props.color"
+      :stroke-width="props.filled ? undefined : props.strokeWidth * 2"
+      :clip-path="props.filled ? undefined : `url(#${clipId})`"
+    />
   </svg>
 </template>
 
@@ -57,7 +54,8 @@ const props = withDefaults(defineProps<Props>(), {
 
 const uid = (useId() ?? 'ba').replace(/[^a-zA-Z0-9_-]/g, '') || 'ba';
 const clipId = `black-arrow-clip-${uid}`;
-const points = '6,24 34,24 34,10 58,32 34,54 34,40 6,40';
+/** 軸+矢じりの右向き矢印の頂点(中心32,32) */
+const BASE: readonly [number, number][] = [[6, 24], [34, 24], [34, 10], [58, 32], [34, 54], [34, 40], [6, 40]];
 
 /** 右向きを基準にした時計回りの回転角 */
 const angle = computed(() => {
@@ -71,5 +69,22 @@ const angle = computed(() => {
     case 'top-right': return 315;
     default: return 0; // right
   }
+});
+
+/**
+ * 頂点をdirectionの向きへ回転して矢印の形を求める。
+ * 矢印は点対称でないため、斜め向きでは回転だけだと外接矩形の中心が(32,32)からずれる。外接矩形が中央に来るよう平行移動する
+ */
+const points = computed((): string => {
+  const t = angle.value * Math.PI / 180;
+  const rotated = BASE.map(([x, y]): [number, number] => [
+    32 + (x - 32) * Math.cos(t) - (y - 32) * Math.sin(t),
+    32 + (x - 32) * Math.sin(t) + (y - 32) * Math.cos(t)
+  ]);
+  const xs = rotated.map((p) => p[0]);
+  const ys = rotated.map((p) => p[1]);
+  const dx = 32 - (Math.min(...xs) + Math.max(...xs)) / 2;
+  const dy = 32 - (Math.min(...ys) + Math.max(...ys)) / 2;
+  return rotated.map(([x, y]) => `${(x + dx).toFixed(2)},${(y + dy).toFixed(2)}`).join(' ');
 });
 </script>

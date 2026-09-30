@@ -22,13 +22,13 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
         <stop offset="1" stop-color="#8aa3ad" />
       </radialGradient>
       <!-- 枠: 銀の金属。左上が明るく右下が沈む -->
-      <linearGradient :id="lenzFrameId" gradientUnits="userSpaceOnUse" x1="12" y1="12" x2="42" y2="42">
+      <linearGradient :id="lenzFrameId" gradientUnits="userSpaceOnUse" x1="10.5" y1="10.5" x2="40.5" y2="40.5">
         <stop offset="0" stop-color="#f4f6f8" />
         <stop offset="0.5" stop-color="#aab1b9" />
         <stop offset="1" stop-color="#66757F" />
       </linearGradient>
       <!-- 柄: 木製風の円柱シェーディング(線に対して垂直方向) -->
-      <linearGradient :id="handleWoodId" gradientUnits="userSpaceOnUse" x1="44" y1="52" x2="52" y2="44">
+      <linearGradient :id="handleWoodId" gradientUnits="userSpaceOnUse" x1="42.5" y1="50.5" x2="50.5" y2="42.5">
         <stop offset="0%" stop-color="#5A3A24" />
         <stop offset="45%" stop-color="#A9744C" />
         <stop offset="100%" stop-color="#64402A" />
@@ -37,24 +37,24 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     <!-- 柄。光が常に上から当たって見えるよう、下向きは上下反転ではなく回転で作る(上下反転だと柄のハイライトが下側に来る) -->
     <g :transform="handleTransform">
       <!-- 繋ぎ目(柄より細い首。柄に合わせて暗めの茶) -->
-      <line x1="38.5" y1="38.5" x2="43" y2="43" stroke="#4E3320" stroke-width="5.5" />
+      <line x1="37" y1="37" x2="41.5" y2="41.5" stroke="#4E3320" stroke-width="5.5" />
       <!-- 柄(本体) -->
-      <line x1="42.5" y1="42.5" x2="55" y2="55" :stroke="`url(#${handleWoodId})`" stroke-width="9" stroke-linecap="round" />
+      <line x1="41" y1="41" x2="53.5" y2="53.5" :stroke="`url(#${handleWoodId})`" stroke-width="9" stroke-linecap="round" />
       <!-- 柄のハイライト(上側エッジ。木なので控えめ) -->
-      <line x1="44.5" y1="41.8" x2="53" y2="50.3" stroke="#FFD9B0" stroke-width="1.4" stroke-linecap="round" opacity="0.25" />
+      <line x1="43" y1="40.3" x2="51.5" y2="48.8" stroke="#FFD9B0" stroke-width="1.4" stroke-linecap="round" opacity="0.25" />
     </g>
     <!-- レンズ。円なので向きによらず形は同じ。平行移動だけにして、光沢が常に左上から当たって見えるようにする -->
     <g :transform="lensTransform">
       <!-- 枠の外縁(白背景でも輪郭が埋もれないように) -->
-      <circle cx="27" cy="27" r="19" fill="none" stroke="#55616A" stroke-width="0.8" />
+      <circle cx="25.5" cy="25.5" r="19" fill="none" stroke="#55616A" stroke-width="0.8" />
       <!-- レンズ(枠 + ガラス) -->
-      <circle cx="27" cy="27" r="17" :fill="`url(#${lenzGlassId})`" :stroke="`url(#${lenzFrameId})`" stroke-width="4" />
+      <circle cx="25.5" cy="25.5" r="17" :fill="`url(#${lenzGlassId})`" :stroke="`url(#${lenzFrameId})`" stroke-width="4" />
       <!-- 枠の光沢(枠の外寄り。ガラスのハイライトと同じ200°〜250°の範囲) -->
-      <path d="M10.09 20.84 A 18 18 0 0 1 20.84 10.09" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.85" />
+      <path d="M8.59 19.34 A 18 18 0 0 1 19.34 8.59" stroke="#FFFFFF" stroke-width="1.2" stroke-linecap="round" fill="none" opacity="0.85" />
       <!-- ガラス内側の反射リング -->
-      <circle cx="27" cy="27" r="14.2" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.25" />
+      <circle cx="25.5" cy="25.5" r="14.2" fill="none" stroke="#FFFFFF" stroke-width="1.2" opacity="0.25" />
       <!-- ガラスのハイライト(レンズと同心の円弧。枠の光沢と角度を揃える) -->
-      <path d="M15.72 22.9 A 12 12 0 0 1 22.9 15.72" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" fill="none" opacity="0.55" />
+      <path d="M14.22 21.4 A 12 12 0 0 1 21.4 14.22" stroke="#FFFFFF" stroke-width="2.8" stroke-linecap="round" fill="none" opacity="0.55" />
     </g>
   </svg>
 </template>
@@ -96,10 +96,10 @@ const handleTransform = computed((): string => {
   }
 });
 
-/** レンズの中心は左上(27,27)基準。右向き・下向きはそれぞれ10ずらす */
+/** レンズの中心は左上(25.5,25.5)基準。右向き・下向きはそれぞれ13ずらす */
 const lensTransform = computed((): string => {
-  const dx = props.direction === 'top-right' || props.direction === 'bottom-right' ? 10 : 0;
-  const dy = props.direction === 'bottom-left' || props.direction === 'bottom-right' ? 10 : 0;
+  const dx = props.direction === 'top-right' || props.direction === 'bottom-right' ? 13 : 0;
+  const dy = props.direction === 'bottom-left' || props.direction === 'bottom-right' ? 13 : 0;
   return `translate(${dx},${dy})`;
 });
 </script>

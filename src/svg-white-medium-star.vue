@@ -67,7 +67,7 @@ const faceGradId = `star-face-${uid}`;
 const rimGradId = `star-rim-${uid}`;
 
 const CX = 32;
-const CY = 33;
+const CY = 34.5;
 const OUTER_R = 26;  // 外周(星の先端)の半径
 const INNER_R = 12;  // 内周(谷)の半径
 

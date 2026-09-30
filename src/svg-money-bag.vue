@@ -29,16 +29,16 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     </defs>
 
     <!-- 接地影 -->
-    <ellipse cx="82" cy="137" rx="50" ry="4" fill="#000000" opacity="0.13" />
+    <ellipse cx="82" cy="132.5" rx="50" ry="4" fill="#000000" opacity="0.13" />
 
     <!-- 袋本体(麻袋型: 細く絞った首から肩を張って裾へ広がる) -->
     <path
-      d="M69 60
-        C 54 66, 38 76, 35 96
-        C 32 114, 36 128, 46 133
-        C 62 138, 102 138, 118 133
-        C 128 128, 132 114, 129 96
-        C 126 76, 110 66, 95 60
+      d="M69 55.5
+        C 54 61.5, 38 71.5, 35 91.5
+        C 32 109.5, 36 123.5, 46 128.5
+        C 62 133.5, 102 133.5, 118 128.5
+        C 128 123.5, 132 109.5, 129 91.5
+        C 126 71.5, 110 61.5, 95 55.5
         Z"
       :fill="`url(#${bagGradId})`"
       stroke="#7d5a24"
@@ -48,24 +48,24 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 
     <!-- しわ: 絞り口から放射状に落ちる折り目。影(暗い細長い面) + その脇の光(明るい線)で凹凸を出す -->
     <!-- 首の下の絞りの陰 -->
-    <ellipse cx="82" cy="65" rx="15" ry="4" fill="#5a3d16" opacity="0.3" />
+    <ellipse cx="82" cy="60.5" rx="15" ry="4" fill="#5a3d16" opacity="0.3" />
     <g fill="#5a3d16" opacity="0.32">
       <!-- 左右の大きなしわ -->
-      <path d="M70 63 C 59 75, 52 90, 51 110 C 55 96, 62 80, 74 64 Z" />
-      <path d="M94 63 C 105 75, 112 90, 113 110 C 109 96, 102 80, 90 64 Z" />
+      <path d="M70 58.5 C 59 70.5, 52 85.5, 51 105.5 C 55 91.5, 62 75.5, 74 59.5 Z" />
+      <path d="M94 58.5 C 105 70.5, 112 85.5, 113 105.5 C 109 91.5, 102 75.5, 90 59.5 Z" />
       <!-- 首の下の短いしわ -->
-      <path d="M77 64 C 74 70, 72 76, 71 83 C 74 77, 77 71, 80 64 Z" />
-      <path d="M87 64 C 90 70, 92 76, 93 83 C 90 77, 87 71, 84 64 Z" />
+      <path d="M77 59.5 C 74 65.5, 72 71.5, 71 78.5 C 74 72.5, 77 66.5, 80 59.5 Z" />
+      <path d="M87 59.5 C 90 65.5, 92 71.5, 93 78.5 C 90 72.5, 87 66.5, 84 59.5 Z" />
     </g>
     <g fill="none" stroke="#f6e3b2" stroke-width="1.6" stroke-linecap="round" opacity="0.65">
-      <path d="M67 64 C 57 76, 49 91, 48 107" />
-      <path d="M97 64 C 107 76, 115 91, 116 107" />
-      <path d="M75 64 C 72 70, 70 76, 69 81" />
-      <path d="M89 64 C 92 70, 94 76, 95 81" />
+      <path d="M67 59.5 C 57 71.5, 49 86.5, 48 102.5" />
+      <path d="M97 59.5 C 107 71.5, 115 86.5, 116 102.5" />
+      <path d="M75 59.5 C 72 65.5, 70 71.5, 69 76.5" />
+      <path d="M89 59.5 C 92 65.5, 94 71.5, 95 76.5" />
     </g>
 
     <!-- $記号(ストローク描画: S字+縦棒。袋の膨らみの中心に配置) -->
-    <g fill="none" stroke="#3a3d33" stroke-linecap="round" transform="translate(82 101) scale(0.85) translate(-82 -96.5)">
+    <g fill="none" stroke="#3a3d33" stroke-linecap="round" transform="translate(82 96.5) scale(0.85) translate(-82 -96.5)">
       <path d="M82 67 v59" stroke-width="6.5" />
       <path
         d="M96.5 83
@@ -81,14 +81,14 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
 
     <!-- 絞り口の上の布(縄で細く絞られ、上へフリル状に広がる) -->
     <path
-      d="M71 61
-        C 65 54, 55 46, 50 38
-        C 54 33, 59 36, 62 33
-        C 66 28, 72 32, 75 30
-        C 79 26, 85 26, 89 30
-        C 92 32, 98 28, 102 33
-        C 105 36, 110 33, 114 38
-        C 109 46, 99 54, 93 61
+      d="M71 56.5
+        C 65 49.5, 55 41.5, 50 33.5
+        C 54 28.5, 59 31.5, 62 28.5
+        C 66 23.5, 72 27.5, 75 25.5
+        C 79 21.5, 85 21.5, 89 25.5
+        C 92 27.5, 98 23.5, 102 28.5
+        C 105 31.5, 110 28.5, 114 33.5
+        C 109 41.5, 99 49.5, 93 56.5
         Z"
       :fill="`url(#${topGradId})`"
       stroke="#7d5a24"
@@ -97,30 +97,30 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     />
     <!-- 布のひだ(絞り口へ集まる折り目): 影の線 + 左脇の光の線 -->
     <g stroke="#6b4a1c" stroke-width="1.4" fill="none" opacity="0.6" stroke-linecap="round">
-      <path d="M62 34 C 65 44, 69 52, 74 59" />
-      <path d="M75 31 C 77 42, 78 51, 79 59" />
-      <path d="M89 30 C 88 41, 86 51, 85 59" />
-      <path d="M102 34 C 99 44, 95 52, 90 59" />
+      <path d="M62 29.5 C 65 39.5, 69 47.5, 74 54.5" />
+      <path d="M75 26.5 C 77 37.5, 78 46.5, 79 54.5" />
+      <path d="M89 25.5 C 88 36.5, 86 46.5, 85 54.5" />
+      <path d="M102 29.5 C 99 39.5, 95 47.5, 90 54.5" />
     </g>
     <g stroke="#f6e3b2" stroke-width="1.2" fill="none" opacity="0.7" stroke-linecap="round">
-      <path d="M60.5 35 C 63 44, 67 52, 72.5 59" />
-      <path d="M73.5 32 C 75.5 42, 76.5 51, 77.5 59" />
-      <path d="M87.5 31 C 86.5 41, 84.5 51, 83.5 59" />
-      <path d="M100.5 35 C 97.5 44, 93.5 52, 88.5 59" />
+      <path d="M60.5 30.5 C 63 39.5, 67 47.5, 72.5 54.5" />
+      <path d="M73.5 27.5 C 75.5 37.5, 76.5 46.5, 77.5 54.5" />
+      <path d="M87.5 26.5 C 86.5 36.5, 84.5 46.5, 83.5 54.5" />
+      <path d="M100.5 30.5 C 97.5 39.5, 93.5 47.5, 88.5 54.5" />
     </g>
 
     <!-- 絞りの縄(太い線に明るい縞を重ねて、ねじれを表す) -->
-    <path d="M65 60 C 74 64, 90 64, 99 60" fill="none" stroke="#7a5a2e" stroke-width="5.5" stroke-linecap="round" />
-    <path d="M65 60 C 74 64, 90 64, 99 60" fill="none" stroke="#b8925a" stroke-width="4" stroke-dasharray="2 2" />
+    <path d="M65 55.5 C 74 59.5, 90 59.5, 99 55.5" fill="none" stroke="#7a5a2e" stroke-width="5.5" stroke-linecap="round" />
+    <path d="M65 55.5 C 74 59.5, 90 59.5, 99 55.5" fill="none" stroke="#b8925a" stroke-width="4" stroke-dasharray="2 2" />
     <!-- 右側の結び目から垂れる縄の端(先がほつれた房) -->
-    <path d="M98 61 C 108 68, 112 79, 110 90" fill="none" stroke="#7a5a2e" stroke-width="4.5" stroke-linecap="round" />
-    <path d="M98 61 C 108 68, 112 79, 110 90" fill="none" stroke="#b8925a" stroke-width="3.2" stroke-dasharray="2 2" />
-    <circle cx="98" cy="61" r="4" fill="#9a764a" stroke="#6b4e24" stroke-width="1.2" />
-    <circle cx="110" cy="89" r="3" fill="#9a764a" stroke="#6b4e24" stroke-width="1.2" />
+    <path d="M98 56.5 C 108 63.5, 112 74.5, 110 85.5" fill="none" stroke="#7a5a2e" stroke-width="4.5" stroke-linecap="round" />
+    <path d="M98 56.5 C 108 63.5, 112 74.5, 110 85.5" fill="none" stroke="#b8925a" stroke-width="3.2" stroke-dasharray="2 2" />
+    <circle cx="98" cy="56.5" r="4" fill="#9a764a" stroke="#6b4e24" stroke-width="1.2" />
+    <circle cx="110" cy="84.5" r="3" fill="#9a764a" stroke="#6b4e24" stroke-width="1.2" />
     <g stroke="#7a5a2e" stroke-width="1.3" stroke-linecap="round">
-      <path d="M110 92 l-2.2 6" />
-      <path d="M110 92 l0 6.5" />
-      <path d="M110 92 l2.2 6" />
+      <path d="M110 87.5 l-2.2 6" />
+      <path d="M110 87.5 l0 6.5" />
+      <path d="M110 87.5 l2.2 6" />
     </g>
   </svg>
 </template>

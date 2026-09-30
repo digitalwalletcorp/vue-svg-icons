@@ -90,7 +90,7 @@ const glossBlurId = `pointing-triangle-gloss-blur-${uid}`;
 const faceClipId = `pointing-triangle-face-clip-${uid}`;
 
 /** 上向き三角の頂点 */
-const BASE: [number, number][] = [[32, 12], [56, 50], [8, 50]];
+const BASE: [number, number][] = [[32, 13], [56, 51], [8, 51]];
 
 /** 色を明暗方向に amount(-255〜255)だけシフトする。カラーネームは16進数へ解決してから処理する */
 const shiftColor = (color: string, amount: number): string => {

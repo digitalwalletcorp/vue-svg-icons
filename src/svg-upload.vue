@@ -17,7 +17,7 @@ svg-downloadを上下反転した形
   >
     <title v-if="props.title != null">{{ props.title }}</title>
     <path
-      d="M32 56V24m0 0L20 36m12-12l12 12M8 16h48"
+      d="M32 52V20m0 0L20 32m12-12l12 12M8 12h48"
       :stroke="props.color"
       :stroke-width="props.strokeWidth"
       stroke-linecap="round"

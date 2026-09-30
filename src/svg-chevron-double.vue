@@ -53,13 +53,13 @@ const props = withDefaults(defineProps<Props>(), {
 const paths = computed(() => {
   switch (props.direction) {
     case 'up':
-      return ['M12 44l20-20 20 20', 'M12 28l20-20 20 20'];
+      return ['M12 50l20-20 20 20', 'M12 34l20-20 20 20'];
     case 'left':
-      return ['M44 12l-20 20 20 20', 'M28 12l-20 20 20 20'];
+      return ['M50 12l-20 20 20 20', 'M34 12l-20 20 20 20'];
     case 'right':
-      return ['M20 12l20 20-20 20', 'M36 12l20 20-20 20'];
+      return ['M14 12l20 20-20 20', 'M30 12l20 20-20 20'];
     default:
-      return ['M12 20l20 20 20-20', 'M12 36l20 20 20-20'];
+      return ['M12 14l20 20 20-20', 'M12 30l20 20 20-20'];
   }
 });
 </script>

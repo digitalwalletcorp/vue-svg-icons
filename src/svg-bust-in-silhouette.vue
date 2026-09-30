@@ -16,14 +16,14 @@ id参照があるため、複数インスタンスでの衝突を避けてuseId(
     <title v-if="props.title != null">{{ props.title }}</title>
     <defs>
       <!-- 頭と胴で同じ明暗になるよう、図形ごとではなく座標系基準で上薄め→下濃めにする -->
-      <linearGradient :id="bodyGradId" gradientUnits="userSpaceOnUse" x1="0" y1="8" x2="0" y2="58">
+      <linearGradient :id="bodyGradId" gradientUnits="userSpaceOnUse" x1="0" y1="6.5" x2="0" y2="56.5">
         <stop offset="0" stop-color="#9dbbdf" />
         <stop offset="1" stop-color="#58799f" />
       </linearGradient>
     </defs>
     <!-- 左肩→首→頭(楕円の弧)→首→右肩を1本の輪郭にし、縁取りが頭と首の境目に出ないようにする -->
     <path
-      d="M8 58 Q8 45 23 41.5 Q27.5 40.5 27.5 34.42 A11.5 13.5 0 1 1 36.5 34.42 Q36.5 40.5 41 41.5 Q56 45 56 58 Z"
+      d="M8 56.5 Q8 43.5 23 40 Q27.5 39 27.5 32.92 A11.5 13.5 0 1 1 36.5 32.92 Q36.5 39 41 40 Q56 43.5 56 56.5 Z"
       :fill="`url(#${bodyGradId})`"
       stroke="#a9c4e4"
       stroke-width="1"
