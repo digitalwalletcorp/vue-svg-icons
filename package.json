@@ -1,6 +1,6 @@
 {
   "name": "@digitalwalletcorp/vue-svg-icons",
-  "version": "1.15.2",
+  "version": "1.15.3",
   "type": "module",
   "description": "Original SVG icons for Unicode emoji characters, shipped as Vue 3 components",
   "main": "lib/index.cjs",
@@ -11,31 +11,47 @@
   ],
   "exports": {
     ".": {
-      "types": "./lib/index.d.ts",
-      "import": "./lib/index.js",
-      "require": "./lib/index.cjs"
+      "import": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "require": {
+        "types": "./lib/index.d.cts",
+        "default": "./lib/index.cjs"
+      }
     },
     "./nuxt": {
       "types": "./lib/nuxt.d.ts",
       "import": "./lib/nuxt.js"
     },
     "./register": {
-      "types": "./lib/register.d.ts",
-      "import": "./lib/register.js",
-      "require": "./lib/register.cjs"
+      "import": {
+        "types": "./lib/register.d.ts",
+        "default": "./lib/register.js"
+      },
+      "require": {
+        "types": "./lib/register.d.cts",
+        "default": "./lib/register.cjs"
+      }
     },
     "./global": {
       "types": "./lib/global.d.ts"
     },
     "./style.css": "./lib/style.css",
     "./*": {
-      "types": "./lib/*.d.ts",
-      "import": "./lib/*.js",
-      "require": "./lib/*.cjs"
+      "import": {
+        "types": "./lib/*.d.ts",
+        "default": "./lib/*.js"
+      },
+      "require": {
+        "types": "./lib/*.d.cts",
+        "default": "./lib/*.cjs"
+      }
     }
   },
   "scripts": {
     "build": "vite build",
+    "yarn:dedupe": "npx yarn-deduplicate --strategy highest yarn.lock",
     "install:dev": "rm -rf lib dest && find node_modules -mindepth 1 -delete && yarn install",
     "typecheck": "vue-tsc --noEmit -p tsconfig.json",
     "version:patch": "npm version patch",
